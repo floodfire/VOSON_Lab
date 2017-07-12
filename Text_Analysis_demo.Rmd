@@ -5,7 +5,7 @@ date: "2017/7/12"
 output: html_document
 ---
 
-First, we need to install some additional packages.
+我們需要先下載安裝會用到的套件：
 
 ```{r warning=FALSE, eval=FALSE}
 if (!"NLP" %in% installed.packages()) install.packages("NLP")

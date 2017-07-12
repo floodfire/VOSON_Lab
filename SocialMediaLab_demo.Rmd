@@ -116,6 +116,7 @@ png("g_bimodal_facebook_csg.png", width=800, height=700)
 plot(g_bimodal_facebook_csg,vertex.shape="none",edge.width=1.5,edge.curved = .5,edge.arrow.size=0.5,vertex.label.color=V(g_bimodal_facebook_csg)$color,asp=9/16,margin=-0.15)
 dev.off()
 ```
+![](g_bimodal_facebook_csg.png)
 
 ### 也可以存成 graphml 格式，可以讓 Gephi 讀取
 

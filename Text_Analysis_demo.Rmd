@@ -30,8 +30,9 @@ df <- read.csv("http://vosonlab.net/papers/Taiwan_2017/nano2seeds_v2.csv",string
 #df <- read.csv("nano2seeds_v2.csv",stringsAsFactors=FALSE)
 ```
 
-#Part 1
-### 點開我們下載回來的資料集後，會發現有不少列的 meta.keywords(說明欄) 這一欄是空的，因此先清除這些列
+# Part 1
+
+點開我們下載回來的資料集後，會發現有不少列的 meta.keywords(說明欄) 這一欄是空的，因此先清除這些列
 ```{r eval=FALSE}
 toRemove <- which(df$Meta.keywords=="")
 
@@ -42,7 +43,7 @@ if (isTRUE(length(toRemove)!=0)) {
 nrow(df)                #81 websites have meta keywords
 ```
 
-### 取出 dataset 的 meta.keywords 那一欄並指定為 keywords (character vector)
+取出 dataset 的 meta.keywords 那一欄並指定為 keywords (character vector)
 
 ```{r eval=FALSE}
 keywords <- df$Meta.keywords               #just for convenience
@@ -56,7 +57,7 @@ keywords <- iconv(keywords, to = 'utf-8')
 keywords <- iconv(keywords,to="utf-8-mac")
 ```
 
-Now we use the 'tm' package to convert the character vector to a Vcorpus object (volatile corpus, 揮發性主體，應該就是暫時性的物件的意思, tmp, toXXX, fromXXX 這種東西).
+建立操作用的物件
 
 ```{r eval=FALSE}
 myCorpus <- VCorpus(VectorSource(keywords))  # myCorpus is a list of lists (JSON-like)
@@ -85,6 +86,9 @@ myCorpus <- tm_map(myCorpus, removePunctuation)
 ```
 
 ### Stemming
+
+簡單來說：stemming 是 data pre-processing 的一種方法，例如 stemming("fisher", "fishing")，會得到 "fish"
+
 Word stemming is the process of reducing words to their root or base form (see, for example, https://en.wikipedia.org/wiki/Stemming).  From the wikpedia page:
 
 ```
@@ -109,7 +113,8 @@ myCorpus <- tm_map(myCorpus, removeWords, stopwords("english"),lazy=TRUE) # use 
 
 ### White Space removal
 **移除多餘的空白，例如字詞間只需要一個空白，多打的就不要了**
-Eliminate unnecessary 'white space' from the text. For example, "hello    everyone my name   is    fred" becomes "hello everyone my name is fred":
+
+例如："hello    everyone my name   is    fred" => "hello everyone my name is fred":
 
 ```{r eval=FALSE}
 myCorpus <- tm_map(myCorpus, stripWhitespace, lazy=TRUE)
@@ -232,13 +237,14 @@ barchart(freqTerms[orderTerms[1:20]])
 dev.off()
 ```
 
+![](barchart_frequent_terms.png)
 
-#Part 2 文字雲
+# Part 2 文字雲
 
-##Word Cloud
+## Word Cloud
 A *word cloud* is another way of visually representing frequencies of words in a corpus.  In the example below, we will first construct a word cloud for all of the websites in the dataset.  Then we will construct a word cloud for only the "bio" websites.  
 
-###For all websites
+### For all websites
 
 **因為還會分成三種不同類別個字做分析，因此先把原本的 df 依照 Types 分三類 (以 Part1 的方法就是做成 character vectors)**
 ```{r eval=FALSE}
@@ -304,6 +310,8 @@ wordcloud(corp,max.words=200,random.order=FALSE)
 dev.off()
 ```
 
+![](word_cloud_enviro_all.png)
+
 ###For "bio" websites
 
 ```{r eval=FALSE}
@@ -357,3 +365,6 @@ comparison.cloud(tdm2,max.words=200,random.order=FALSE,colors=colorsx)
 #commonality.cloud(tdm2,random.order=FALSE)
 dev.off()
 ```
+
+![](comparison_cloud_enviro.png)
+

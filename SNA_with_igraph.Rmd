@@ -6,11 +6,11 @@ output: html_document
 ---
 
 
-##Introduction
+## Introduction
 
 這個部分教程延續 SocialMediaLab 教程所取得的資料集和網路模型，並使用 igraph 套件進行網絡分析
 
-##Setting up
+## Setting up
 
 載入 igraph (因為是在不同檔案中，所以剛剛在 SocialMediaLab_demo.Rmd 載入過，這邊還是要再載入一次)
 
@@ -38,7 +38,7 @@ g <- read.graph("http://vosonlab.net/papers/Taiwan_2017/Sat_Jun_27_13-04-34_2015
 #g <- read.graph("Sat_Jun_27_13-04-34_2015_EST_YoutubeActorNetwork_FiveFracking.graphml", format="graphml")
 ```
 
-##Some basic information on the network
+## Some basic information on the network
 
 ```{r}
 g   #Information on the igraph graph object
@@ -65,10 +65,10 @@ list.vertex.attributes(g)    #list of the vertex attributes
 list.edge.attributes(g)      #list of the edge attributes
 ```
 
-##Network maps
+## Network maps
 
 ```{r warning=FALSE}
-png("csg_plot1.png", width=800, height=700)
+#png("csg_plot1.png", width=800, height=700)
 plot(g, vertex.shape="none",edge.width=1.5, edge.curved = .5, edge.arrow.size=0.5, asp=9/16,margin=-0.15)
 #dev.off()
 ```
@@ -89,6 +89,8 @@ plot(g2, vertex.shape="none",edge.width=1.5, edge.curved = .5, edge.arrow.size=0
 #dev.off()
 ```
 
+![](csg_plot2.png)
+
 ## 查看連結性 connectivity of the graph (強連結或弱連結) 
 
 ```{r warning=FALSE}
@@ -107,6 +109,8 @@ g3 <- induced_subgraph(g2, which(cc$membership == which.max(cc$csize)))    #subn
 plot(g3, vertex.shape="none",edge.width=1.5, edge.curved = .5, edge.arrow.size=0.5, asp=9/16,margin=-0.15)
 #dev.off()
 ```
+
+![](csg_plot3.png)
 
 ## 節點的中心度 Node centrality
 
@@ -146,7 +150,7 @@ plot(wt, g3, vertex.shape="none",edge.width=1.5, edge.curved = .5, edge.arrow.si
 #dev.off()
 ```
 
-
+![](csg_plot4.png)
 
 
 

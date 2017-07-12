@@ -1,0 +1,154 @@
+---
+title: "SNA_with_igraph"
+author: "Veck Hsiao"
+date: "2017/7/12"
+output: html_document
+---
+
+
+##Introduction
+
+這個部分教程延續 SocialMediaLab 教程所取得的資料集和網路模型，並使用 igraph 套件進行網絡分析
+
+##Setting up
+
+載入 igraph (因為是在不同檔案中，所以剛剛在 SocialMediaLab_demo.Rmd 載入過，這邊還是要再載入一次)
+
+```{r}
+library(igraph)
+```
+
+
+這裡直接使用作者已經抓好放在網路上的資料檔，這些資料來源如下：
+
+YouTube comment network was collected using *SociaMediaLab* using the following 5 videos on "Fracking Australia":
+
+https://www.youtube.com/watch?v=XrE7LzZCn1E
+
+https://www.youtube.com/watch?v=PELxZ3K2o0c
+
+https://www.youtube.com/watch?v=Xfo0hpVrtrs
+
+https://www.youtube.com/watch?v=7Toi2s05Exg
+
+https://www.youtube.com/watch?v=BBSVLGf7zPI
+
+```{r}
+g <- read.graph("http://vosonlab.net/papers/Taiwan_2017/Sat_Jun_27_13-04-34_2015_EST_YoutubeActorNetwork_FiveFracking.graphml", format="graphml")
+#g <- read.graph("Sat_Jun_27_13-04-34_2015_EST_YoutubeActorNetwork_FiveFracking.graphml", format="graphml")
+```
+
+##Some basic information on the network
+
+```{r}
+g   #Information on the igraph graph object
+```
+
+
+attr 告訴我們這個網路圖共有 137 nodes, 359 edges，且我們的圖是 *D*irected, *N*amed, 每個邊(edges) 都有權重(*W*eighted) ，他也顯示出這張圖不是 *B*ipartite graph (**可以分成兩群點，兩群點之間有邊，兩群點內部無邊**)
+```{r}
+V(g)               #list of vertices
+E(g)               #list of edges
+V(g)[36]           #accessing particular vertex
+E(g)[1]            #accessing particular edge
+
+V(g)$id            #list of "id" (vertex) attributes
+E(g)$weight        #list of "weight" (edge) attributes
+
+vcount(g)          #number of nodes in network
+length(V(g))       #another way
+
+ecount(g)          #number of edges
+length(E(g))       #another way
+
+list.vertex.attributes(g)    #list of the vertex attributes
+list.edge.attributes(g)      #list of the edge attributes
+```
+
+##Network maps
+
+```{r warning=FALSE}
+#png("csg_plot1.png", width=800, height=700)
+plot(g, vertex.shape="none",edge.width=1.5, edge.curved = .5, edge.arrow.size=0.5, asp=9/16,margin=-0.15)
+#dev.off()
+```
+
+我們可以發現圖中有 loop (Graph Theory 中，loop 是單點自己連到自己，cycle 是多點形成一個循環)， 這是因為你有可能回應自己的 post 所導致，所以我們要把這種狀況拿掉
+
+```{r warning=FALSE}
+is.simple(g)                 #test whether "simple" graph (no loops or multiple edges)
+
+g2 <- simplify(g)            #construct "simple" version of network
+g2
+is.simple(g2)
+
+#png("csg_plot2.png", width=800, height=700)
+plot(g2, vertex.shape="none",edge.width=1.5, edge.curved = .5, edge.arrow.size=0.5, asp=9/16,margin=-0.15)
+#dev.off()
+```
+
+## 查看連結性 connectivity of the graph (強連結或弱連結) 
+
+```{r warning=FALSE}
+neighbors(g2,36)                     #Leo Sayer's network neighbors
+
+is.connected(g2, mode="weak")        #this is not a weakly connected component 
+
+cc <- clusters(g2)             #information on connected components
+head(cc$membership)                  #which component each node is assigned to
+cc$csize                       #size of each component
+cc$no                          #number of components
+
+g3 <- induced_subgraph(g2, which(cc$membership == which.max(cc$csize)))    #subnetwork - giant component
+
+#png("csg_plot3.png", width=800, height=700)
+plot(g3, vertex.shape="none",edge.width=1.5, edge.curved = .5, edge.arrow.size=0.5, asp=9/16,margin=-0.15)
+#dev.off()
+```
+
+## 節點的中心度 Node centrality
+
+```{r}
+head(degree(g3, mode="in"))                     #node indegree
+head(degree(g3, mode="out"))                    #node outdegree
+ind <- strength(g3, mode="in")            #node indegree, using edge weights
+V(g3)[order(ind, decreasing=T)[1:3]]      #top-5 nodes, based on (weighted) indegree
+
+head(closeness(g3))                      #closeness centrality
+head(betweenness(g3))                    #betweenness centrality
+head(evcent(g3)$vector)                  #eigenvector centrality
+```
+
+## 凝聚力 Network cohesion
+
+這裡有 graph.density, transitivity (轉移關係), reciprocity(交互關係)
+
+```{r}
+graph.density(g3)           #density 
+transitivity(g3)            #(global) clustering coefficient - rel. frequency connected triples close to form triangles
+ 
+reciprocity(g3, mode="default")     #number of dyads with reciprocated (mutual) edges/number of dyads with single edge
+reciprocity(g3, mode="ratio")       #total number of reciprocated edges/total number of edges
+```
+
+## 社群的辨識度 Community identification
+
+```{r warning=FALSE}
+wt <- walktrap.community(g3)       #community identification (walktrap algorithm)
+wt
+length(wt)                         #number of communities
+sizes(wt)                          #community sizes
+
+#png("csg_plot4.png", width=800, height=700)
+plot(wt, g3, vertex.shape="none",edge.width=1.5, edge.curved = .5, edge.arrow.size=0.5, asp=9/16,margin=-0.15)
+#dev.off()
+```
+
+
+
+
+
+
+
+
+

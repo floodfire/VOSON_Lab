@@ -1,0 +1,221 @@
+---
+title: Analysing the "Divided They Blog" network with R/igraph
+author: "Robert Ackland"
+date: "23 June 2017"
+output: pdf_document
+graphics: yes
+---
+
+## Introduction
+
+In this exercise we will analyse the "Divided They Blog"(40 A-listers) dataset.
+
+These data come from:
+
+Adamic, L. and Glance, N. (2005). The political blogosphere and the 2004 U.S. election: Divided they blog. In Proceedings of the 3rd International Workshop on Link Discovery (LINKDD 2005), pages 6–43.
+
+First, load up the igraph package.
+
+```{r eval=TRUE}
+library(igraph)
+```
+
+Now we will create a data frame containing the edgelist, and then create our igraph graph object.
+
+```{r eval=TRUE}
+#load edgelist in csv file format
+#edge_dat <- read.csv("DividedTheyBlog_40Alist_Edges.csv",header=TRUE)
+edge_dat <- read.csv("http://vosonlab.net/papers/Taiwan_2017/DividedTheyBlog_40Alist_Edges.csv",header=TRUE)
+
+
+#igraph likes two-column matrix format
+el <- as.matrix(edge_dat)                          
+
+#create igraph graph object from the edgelist
+g <- graph.edgelist(el,directed=TRUE)
+```
+
+We can get descriptive information about the network:
+
+```{r eval=TRUE}
+g
+```
+
+This informs us that there are 39 nodes and 363 edges in the network. It tells us that our graph is *D*irected, *N*amed, the edges are not *W*eighted, and it is not a *B*ipartite graph.
+
+
+```{r eval=TRUE}
+#Note: there is only 39, not 40, because one vertex (blog.johnkerry.com) is an isolate and hence not yet in the network...
+length(V(g)$name)
+
+#So let's add that vertex manually
+g <- add.vertices(g,1,name="blog.johnkerry.com")
+```
+
+
+Next, we can visualise the network by plotting it directly in R:
+```{r eval=TRUE}
+png("figures/divided.png", width=800, height=700)
+plot(g,edge.width=1.5,edge.curved=.5,edge.arrow.size=0.5)
+dev.off()
+```
+
+This results in the following:
+\begin{center}
+\includegraphics{figures/divided.png}
+\end{center}
+
+Next we will do some more descriptive analysis:
+
+```{r eval=TRUE}
+#list of nodes
+V(g)
+#list of edges
+E(g)   
+#accessing particular node
+V(g)[2]
+#accessing particular edge
+E(g)[1]            
+
+#list of "name" (node) attributes - use head() to print the first 5
+head(V(g)$name)  
+
+#number of nodes in network
+vcount(g)  
+#another way
+length(V(g))       
+
+#number of edges
+ecount(g)  
+#another way
+length(E(g))       
+
+#list of the node attributes
+list.vertex.attributes(g)  
+#list of the edge attributes (we don't have any)
+list.edge.attributes(g)      
+
+```
+
+We will now look at some measures of node centrality:
+
+```{r eval=TRUE}
+#node indegree
+head(degree(g, mode="in"))
+#node outdegree
+head(degree(g, mode="out") )
+#top-5 nodes, based onindegree
+V(g)[order(degree(g, mode="in"), decreasing=T)[1:5]]      
+
+#closeness centrality
+head(closeness(g))
+#betweenness centrality
+head(betweenness(g))
+```
+
+##Getting attributes into the network
+
+```{r eval=TRUE}
+#load attributes in csv file format
+#attr <- read.csv("DividedTheyBlog_40Alist_Vertices.csv",header=TRUE)
+attr <- read.csv("http://vosonlab.net/papers/Taiwan_2017/DividedTheyBlog_40Alist_Vertices.csv",header=TRUE)
+
+#We are now going to create a vertex attribute called "Stance" by extracting the value
+#of the column "Stance" in the attributes file when the Vertex matches the 
+#vertex name.
+
+#First , lets look at the first 5 vertex names using head()
+head(V(g)$name)                       #head() prints the first 5 elements
+
+#the vertex names in the attributes data frame
+head(attr$Vertex)
+length(attr$Vertex)                   #we have all 40 of the vertices here
+
+#match searches for each of the vertex names (in the igraph object) and returns their
+#row position in the attributes data frame
+match(V(g)$name,attr$Vertex)
+
+#so this says that "mypetjawa.mu.nu" is row 2 of attr$Vertex, "wizbangblog.com" is in
+#row 17 etc. (confirm for yourself that this is the case)
+
+#so match returns an integer vector (indicating the correct rows in the data frame)
+#this is used to return a character vector of "Stance" that is in the correct order
+#and can be input as a new vertex attribute in the graph object
+
+V(g)$Stance=as.character(attr$Stance[match(V(g)$name,attr$Vertex)])
+head(V(g)$Stance)
+```
+
+Now let's plot the network again, this time using the vertex attribute "Stance" for the node colour:
+```{r eval=TRUE}
+#the vertex attribute "color" will be used by the plot function for node color
+V(g)$color <- ifelse(V(g)$Stance=="conservative","red","blue")
+
+png("figures/divided2.png", width=800, height=700)
+plot(g,edge.width=1.5,edge.curved=.5,edge.arrow.size=0.5)
+dev.off()
+```
+
+This results in the following:
+\begin{center}
+\includegraphics{figures/divided2.png}
+\end{center}
+
+
+##Calculating the homophily index
+
+In igraph we will calculate the mixing matrix using a function written by Gary Weissman (see: https://gist.github.com/gweissman/2402741, http://www.babelgraph.org/wp/?p=351)
+
+```{r eval=TRUE}
+mixmat <- function(mygraph, attrib, use.density=TRUE) {
+    
+    require(igraph)
+
+    # get unique list of characteristics of the attribute
+    attlist <- sort(unique(get.vertex.attribute(mygraph,attrib)))
+    
+    numatts <- length(attlist)
+    
+    # build an empty mixing matrix by attribute
+    mm <- matrix(nrow=numatts, 
+                 ncol=numatts,
+                 dimnames=list(attlist,attlist))
+    
+    # calculate edge density for each matrix entry by pairing type
+    # lends itself to parallel if available
+    el <- get.edgelist(mygraph,names=FALSE)
+    for (i in 1:numatts) {
+        for (j in 1:numatts) {
+            mm[i,j] <- length(which(apply(el,1,function(x) { 
+                get.vertex.attribute(mygraph, attrib, x[1] ) == attlist[i] && 
+                    get.vertex.attribute(mygraph, attrib, x[2] ) == attlist[j]  } )))
+        }  
+    }
+    
+    # convert to proportional mixing matrix if desired (ie by edge density)
+    if (use.density) mm/ecount(mygraph) else mm
+}
+
+mixmat(g, "Stance", use.density=FALSE)
+```
+
+Now, let's calculate the homophily index for conservatives.
+
+```{r eval=TRUE}
+#create the mixing matrix
+mm <- mixmat(g, "Stance", use.density=FALSE)
+
+#population share of conservative bloggers
+w_c <- length(which(V(g)$Stance=="conservative"))/length(V(g))
+w_c          #OK, this dataset is not too interesting for calculating homophily....
+
+#homogeneity index of conservative bloggers
+H_c <- mm[1,1]/(mm[1,1]+mm[1,2])
+H_c               #76.5% of conservative blogger ties are directed to other conservatives
+
+#Homophily index of conservative bloggers
+Hstar_c <- (H_c-w_c)/(1-w_c)
+Hstar_c           #conservatives display slight tendency towards homophily
+
+```
+

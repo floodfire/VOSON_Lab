@@ -1,0 +1,1919 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+         http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+<!-- Created by igraph -->
+  <key id="v_name" for="node" attr.name="name" attr.type="string"/>
+  <key id="v_label" for="node" attr.name="label" attr.type="string"/>
+  <key id="e_edgeType" for="edge" attr.name="edgeType" attr.type="string"/>
+  <key id="e_timeStamp" for="edge" attr.name="timeStamp" attr.type="string"/>
+  <key id="e_tweet_id" for="edge" attr.name="tweet_id" attr.type="string"/>
+  <graph id="G" edgedefault="directed">
+    <node id="n0">
+      <data key="v_name">PeterMHume</data>
+      <data key="v_label">PeterMHume</data>
+    </node>
+    <node id="n1">
+      <data key="v_name">SandraA69243408</data>
+      <data key="v_label">SandraA69243408</data>
+    </node>
+    <node id="n2">
+      <data key="v_name">kickasschicken</data>
+      <data key="v_label">kickasschicken</data>
+    </node>
+    <node id="n3">
+      <data key="v_name">surtisufiyan1</data>
+      <data key="v_label">surtisufiyan1</data>
+    </node>
+    <node id="n4">
+      <data key="v_name">abuabanda</data>
+      <data key="v_label">abuabanda</data>
+    </node>
+    <node id="n5">
+      <data key="v_name">procartoonists</data>
+      <data key="v_label">procartoonists</data>
+    </node>
+    <node id="n6">
+      <data key="v_name">Andrew_Marcus21</data>
+      <data key="v_label">Andrew_Marcus21</data>
+    </node>
+    <node id="n7">
+      <data key="v_name">freedomfightsuk</data>
+      <data key="v_label">freedomfightsuk</data>
+    </node>
+    <node id="n8">
+      <data key="v_name">rivsey</data>
+      <data key="v_label">rivsey</data>
+    </node>
+    <node id="n9">
+      <data key="v_name">TootlessWonderS</data>
+      <data key="v_label">TootlessWonderS</data>
+    </node>
+    <node id="n10">
+      <data key="v_name">LelHulagirl63</data>
+      <data key="v_label">LelHulagirl63</data>
+    </node>
+    <node id="n11">
+      <data key="v_name">PTPSHORE</data>
+      <data key="v_label">PTPSHORE</data>
+    </node>
+    <node id="n12">
+      <data key="v_name">how_phil</data>
+      <data key="v_label">how_phil</data>
+    </node>
+    <node id="n13">
+      <data key="v_name">MalurusSally</data>
+      <data key="v_label">MalurusSally</data>
+    </node>
+    <node id="n14">
+      <data key="v_name">King2712King</data>
+      <data key="v_label">King2712King</data>
+    </node>
+    <node id="n15">
+      <data key="v_name">DavidAHoward</data>
+      <data key="v_label">DavidAHoward</data>
+    </node>
+    <node id="n16">
+      <data key="v_name">jocelynandcam</data>
+      <data key="v_label">jocelynandcam</data>
+    </node>
+    <node id="n17">
+      <data key="v_name">sandycheeks2332</data>
+      <data key="v_label">sandycheeks2332</data>
+    </node>
+    <node id="n18">
+      <data key="v_name">CV4Refugees</data>
+      <data key="v_label">CV4Refugees</data>
+    </node>
+    <node id="n19">
+      <data key="v_name">JJS54</data>
+      <data key="v_label">JJS54</data>
+    </node>
+    <node id="n20">
+      <data key="v_name">NewbyNewbys</data>
+      <data key="v_label">NewbyNewbys</data>
+    </node>
+    <node id="n21">
+      <data key="v_name">CorruptNSW</data>
+      <data key="v_label">CorruptNSW</data>
+    </node>
+    <node id="n22">
+      <data key="v_name">LavenderLibv2</data>
+      <data key="v_label">LavenderLibv2</data>
+    </node>
+    <node id="n23">
+      <data key="v_name">MissyJo79</data>
+      <data key="v_label">MissyJo79</data>
+    </node>
+    <node id="n24">
+      <data key="v_name">Hanannews</data>
+      <data key="v_label">Hanannews</data>
+    </node>
+    <node id="n25">
+      <data key="v_name">MichaelColl5</data>
+      <data key="v_label">MichaelColl5</data>
+    </node>
+    <node id="n26">
+      <data key="v_name">redspactakells</data>
+      <data key="v_label">redspactakells</data>
+    </node>
+    <node id="n27">
+      <data key="v_name">mikeglasgowuk</data>
+      <data key="v_label">mikeglasgowuk</data>
+    </node>
+    <node id="n28">
+      <data key="v_name">Iseevous</data>
+      <data key="v_label">Iseevous</data>
+    </node>
+    <node id="n29">
+      <data key="v_name">cunningham_cch</data>
+      <data key="v_label">cunningham_cch</data>
+    </node>
+    <node id="n30">
+      <data key="v_name">DrummerGrlx</data>
+      <data key="v_label">DrummerGrlx</data>
+    </node>
+    <node id="n31">
+      <data key="v_name">Britain_United</data>
+      <data key="v_label">Britain_United</data>
+    </node>
+    <node id="n32">
+      <data key="v_name">_sara_jade_</data>
+      <data key="v_label">_sara_jade_</data>
+    </node>
+    <node id="n33">
+      <data key="v_name">KazTweetsUK</data>
+      <data key="v_label">KazTweetsUK</data>
+    </node>
+    <node id="n34">
+      <data key="v_name">BevPerth</data>
+      <data key="v_label">BevPerth</data>
+    </node>
+    <node id="n35">
+      <data key="v_name">Chilhon2016Lap</data>
+      <data key="v_label">Chilhon2016Lap</data>
+    </node>
+    <node id="n36">
+      <data key="v_name">SjokeB</data>
+      <data key="v_label">SjokeB</data>
+    </node>
+    <node id="n37">
+      <data key="v_name">bigtoes44</data>
+      <data key="v_label">bigtoes44</data>
+    </node>
+    <node id="n38">
+      <data key="v_name">nanoview</data>
+      <data key="v_label">nanoview</data>
+    </node>
+    <node id="n39">
+      <data key="v_name">addcount</data>
+      <data key="v_label">addcount</data>
+    </node>
+    <node id="n40">
+      <data key="v_name">Janedroid</data>
+      <data key="v_label">Janedroid</data>
+    </node>
+    <node id="n41">
+      <data key="v_name">Phil_HX4</data>
+      <data key="v_label">Phil_HX4</data>
+    </node>
+    <node id="n42">
+      <data key="v_name">Pet_Lam</data>
+      <data key="v_label">Pet_Lam</data>
+    </node>
+    <node id="n43">
+      <data key="v_name">MeckeringBoy</data>
+      <data key="v_label">MeckeringBoy</data>
+    </node>
+    <node id="n44">
+      <data key="v_name">TheUnknownAbyss</data>
+      <data key="v_label">TheUnknownAbyss</data>
+    </node>
+    <node id="n45">
+      <data key="v_name">WesternProgeny</data>
+      <data key="v_label">WesternProgeny</data>
+    </node>
+    <node id="n46">
+      <data key="v_name">SabirAbbasi3790</data>
+      <data key="v_label">SabirAbbasi3790</data>
+    </node>
+    <node id="n47">
+      <data key="v_name">itiginumu</data>
+      <data key="v_label">itiginumu</data>
+    </node>
+    <node id="n48">
+      <data key="v_name">Immarymac</data>
+      <data key="v_label">Immarymac</data>
+    </node>
+    <node id="n49">
+      <data key="v_name">yagbebi</data>
+      <data key="v_label">yagbebi</data>
+    </node>
+    <node id="n50">
+      <data key="v_name">MsRonnyB</data>
+      <data key="v_label">MsRonnyB</data>
+    </node>
+    <node id="n51">
+      <data key="v_name">ClarenceBeeksX</data>
+      <data key="v_label">ClarenceBeeksX</data>
+    </node>
+    <node id="n52">
+      <data key="v_name">SlowBurnOz</data>
+      <data key="v_label">SlowBurnOz</data>
+    </node>
+    <node id="n53">
+      <data key="v_name">Paul_4_PM</data>
+      <data key="v_label">Paul_4_PM</data>
+    </node>
+    <node id="n54">
+      <data key="v_name">twitviewer29443</data>
+      <data key="v_label">twitviewer29443</data>
+    </node>
+    <node id="n55">
+      <data key="v_name">SSLsoundguy</data>
+      <data key="v_label">SSLsoundguy</data>
+    </node>
+    <node id="n56">
+      <data key="v_name">Nate_Irish</data>
+      <data key="v_label">Nate_Irish</data>
+    </node>
+    <node id="n57">
+      <data key="v_name">On_Da_Ball</data>
+      <data key="v_label">On_Da_Ball</data>
+    </node>
+    <node id="n58">
+      <data key="v_name">jillpoll</data>
+      <data key="v_label">jillpoll</data>
+    </node>
+    <node id="n59">
+      <data key="v_name">GarryCronan</data>
+      <data key="v_label">GarryCronan</data>
+    </node>
+    <node id="n60">
+      <data key="v_name">fredknerks</data>
+      <data key="v_label">fredknerks</data>
+    </node>
+    <node id="n61">
+      <data key="v_name">1donmitchel</data>
+      <data key="v_label">1donmitchel</data>
+    </node>
+    <node id="n62">
+      <data key="v_name">JakobsVoice</data>
+      <data key="v_label">JakobsVoice</data>
+    </node>
+    <node id="n63">
+      <data key="v_name">allisonBeDemure</data>
+      <data key="v_label">allisonBeDemure</data>
+    </node>
+    <node id="n64">
+      <data key="v_name">IamCatyI</data>
+      <data key="v_label">IamCatyI</data>
+    </node>
+    <node id="n65">
+      <data key="v_name">polyxena</data>
+      <data key="v_label">polyxena</data>
+    </node>
+    <node id="n66">
+      <data key="v_name">pepsee45</data>
+      <data key="v_label">pepsee45</data>
+    </node>
+    <node id="n67">
+      <data key="v_name">BundyPundit</data>
+      <data key="v_label">BundyPundit</data>
+    </node>
+    <node id="n68">
+      <data key="v_name">prayerhouse_gc</data>
+      <data key="v_label">prayerhouse_gc</data>
+    </node>
+    <node id="n69">
+      <data key="v_name">cairnsoneday</data>
+      <data key="v_label">cairnsoneday</data>
+    </node>
+    <node id="n70">
+      <data key="v_name">Loud_Lass</data>
+      <data key="v_label">Loud_Lass</data>
+    </node>
+    <node id="n71">
+      <data key="v_name">BlackKnight981</data>
+      <data key="v_label">BlackKnight981</data>
+    </node>
+    <node id="n72">
+      <data key="v_name">MGliksmanMDPhD</data>
+      <data key="v_label">MGliksmanMDPhD</data>
+    </node>
+    <node id="n73">
+      <data key="v_name">FrBower</data>
+      <data key="v_label">FrBower</data>
+    </node>
+    <node id="n74">
+      <data key="v_name">abcnews</data>
+      <data key="v_label">abcnews</data>
+    </node>
+    <node id="n75">
+      <data key="v_name">Julian_Wigley</data>
+      <data key="v_label">Julian_Wigley</data>
+    </node>
+    <node id="n76">
+      <data key="v_name">GhostWhoVotes</data>
+      <data key="v_label">GhostWhoVotes</data>
+    </node>
+    <node id="n77">
+      <data key="v_name">Canisrah</data>
+      <data key="v_label">Canisrah</data>
+    </node>
+    <node id="n78">
+      <data key="v_name">STamworth</data>
+      <data key="v_label">STamworth</data>
+    </node>
+    <node id="n79">
+      <data key="v_name">All4basicincome</data>
+      <data key="v_label">All4basicincome</data>
+    </node>
+    <node id="n80">
+      <data key="v_name">TSMCartoons</data>
+      <data key="v_label">TSMCartoons</data>
+    </node>
+    <node id="n81">
+      <data key="v_name">SydneyAtheist</data>
+      <data key="v_label">SydneyAtheist</data>
+    </node>
+    <node id="n82">
+      <data key="v_name">theUNCLEdaily</data>
+      <data key="v_label">theUNCLEdaily</data>
+    </node>
+    <node id="n83">
+      <data key="v_name">JSalmonupstream</data>
+      <data key="v_label">JSalmonupstream</data>
+    </node>
+    <node id="n84">
+      <data key="v_name">AustralisTerry</data>
+      <data key="v_label">AustralisTerry</data>
+    </node>
+    <node id="n85">
+      <data key="v_name">FlatEarthGang</data>
+      <data key="v_label">FlatEarthGang</data>
+    </node>
+    <node id="n86">
+      <data key="v_name">JustJen64</data>
+      <data key="v_label">JustJen64</data>
+    </node>
+    <node id="n87">
+      <data key="v_name">den2114</data>
+      <data key="v_label">den2114</data>
+    </node>
+    <node id="n88">
+      <data key="v_name">LittleBertie01</data>
+      <data key="v_label">LittleBertie01</data>
+    </node>
+    <node id="n89">
+      <data key="v_name">GoldingCartoons</data>
+      <data key="v_label">GoldingCartoons</data>
+    </node>
+    <node id="n90">
+      <data key="v_name">InsidersABC</data>
+      <data key="v_label">InsidersABC</data>
+    </node>
+    <node id="n91">
+      <data key="v_name">roweafr</data>
+      <data key="v_label">roweafr</data>
+    </node>
+    <node id="n92">
+      <data key="v_name">9NewsAUS</data>
+      <data key="v_label">9NewsAUS</data>
+    </node>
+    <node id="n93">
+      <data key="v_name">AustLiberty</data>
+      <data key="v_label">AustLiberty</data>
+    </node>
+    <node id="n94">
+      <data key="v_name">bugwannostra</data>
+      <data key="v_label">bugwannostra</data>
+    </node>
+    <node id="n95">
+      <data key="v_name">blaircottrell89</data>
+      <data key="v_label">blaircottrell89</data>
+    </node>
+    <node id="n96">
+      <data key="v_name">TwoEyeHead</data>
+      <data key="v_label">TwoEyeHead</data>
+    </node>
+    <node id="n97">
+      <data key="v_name">TeamTAbbott</data>
+      <data key="v_label">TeamTAbbott</data>
+    </node>
+    <node id="n98">
+      <data key="v_name">howiexxx</data>
+      <data key="v_label">howiexxx</data>
+    </node>
+    <node id="n99">
+      <data key="v_name">LesStonehouse</data>
+      <data key="v_label">LesStonehouse</data>
+    </node>
+    <node id="n100">
+      <data key="v_name">AngryGranny1</data>
+      <data key="v_label">AngryGranny1</data>
+    </node>
+    <node id="n101">
+      <data key="v_name">osbornep</data>
+      <data key="v_label">osbornep</data>
+    </node>
+    <node id="n102">
+      <data key="v_name">GaryFallon2</data>
+      <data key="v_label">GaryFallon2</data>
+    </node>
+    <node id="n103">
+      <data key="v_name">SallyRMelb</data>
+      <data key="v_label">SallyRMelb</data>
+    </node>
+    <node id="n104">
+      <data key="v_name">SarahsMimi</data>
+      <data key="v_label">SarahsMimi</data>
+    </node>
+    <node id="n105">
+      <data key="v_name">jihadwatchRS</data>
+      <data key="v_label">jihadwatchRS</data>
+    </node>
+    <node id="n106">
+      <data key="v_name">DirkJones10au</data>
+      <data key="v_label">DirkJones10au</data>
+    </node>
+    <node id="n107">
+      <data key="v_name">AmyMek</data>
+      <data key="v_label">AmyMek</data>
+    </node>
+    <node id="n108">
+      <data key="v_name">POTUS</data>
+      <data key="v_label">POTUS</data>
+    </node>
+    <node id="n109">
+      <data key="v_name">CRNet</data>
+      <data key="v_label">CRNet</data>
+    </node>
+    <node id="n110">
+      <data key="v_name">snowded</data>
+      <data key="v_label">snowded</data>
+    </node>
+    <node id="n111">
+      <data key="v_name">NA</data>
+      <data key="v_label">NA</data>
+    </node>
+    <node id="n112">
+      <data key="v_name">PeterDutton_MP</data>
+      <data key="v_label">PeterDutton_MP</data>
+    </node>
+    <node id="n113">
+      <data key="v_name">DIBPAustralia</data>
+      <data key="v_label">DIBPAustralia</data>
+    </node>
+    <node id="n114">
+      <data key="v_name">CRNetInt</data>
+      <data key="v_label">CRNetInt</data>
+    </node>
+    <node id="n115">
+      <data key="v_name">globalcartoons</data>
+      <data key="v_label">globalcartoons</data>
+    </node>
+    <node id="n116">
+      <data key="v_name">CartooningPea</data>
+      <data key="v_label">CartooningPea</data>
+    </node>
+    <node id="n117">
+      <data key="v_name">BiseAhmed</data>
+      <data key="v_label">BiseAhmed</data>
+    </node>
+    <node id="n118">
+      <data key="v_name">MariamVeiszadeh</data>
+      <data key="v_label">MariamVeiszadeh</data>
+    </node>
+    <node id="n119">
+      <data key="v_name">afp</data>
+      <data key="v_label">afp</data>
+    </node>
+    <node id="n120">
+      <data key="v_name">jawapos</data>
+      <data key="v_label">jawapos</data>
+    </node>
+    <node id="n121">
+      <data key="v_name">IndosiarID</data>
+      <data key="v_label">IndosiarID</data>
+    </node>
+    <node id="n122">
+      <data key="v_name">jokowi</data>
+      <data key="v_label">jokowi</data>
+    </node>
+    <node id="n123">
+      <data key="v_name">smh</data>
+      <data key="v_label">smh</data>
+    </node>
+    <node id="n124">
+      <data key="v_name">sundayage</data>
+      <data key="v_label">sundayage</data>
+    </node>
+    <node id="n125">
+      <data key="v_name">EKikkertMLA</data>
+      <data key="v_label">EKikkertMLA</data>
+    </node>
+    <node id="n126">
+      <data key="v_name">rabbitandcoffee</data>
+      <data key="v_label">rabbitandcoffee</data>
+    </node>
+    <node id="n127">
+      <data key="v_name">FinancialReview</data>
+      <data key="v_label">FinancialReview</data>
+    </node>
+    <node id="n128">
+      <data key="v_name">optimistgopher</data>
+      <data key="v_label">optimistgopher</data>
+    </node>
+    <node id="n129">
+      <data key="v_name">cpyne</data>
+      <data key="v_label">cpyne</data>
+    </node>
+    <node id="n130">
+      <data key="v_name">geertwilderspvv</data>
+      <data key="v_label">geertwilderspvv</data>
+    </node>
+    <node id="n131">
+      <data key="v_name">AMDWa</data>
+      <data key="v_label">AMDWa</data>
+    </node>
+    <node id="n132">
+      <data key="v_name">essjayeff</data>
+      <data key="v_label">essjayeff</data>
+    </node>
+    <node id="n133">
+      <data key="v_name">ChipRolley</data>
+      <data key="v_label">ChipRolley</data>
+    </node>
+    <node id="n134">
+      <data key="v_name">FatherBob</data>
+      <data key="v_label">FatherBob</data>
+    </node>
+    <node id="n135">
+      <data key="v_name">LiberalAus</data>
+      <data key="v_label">LiberalAus</data>
+    </node>
+    <node id="n136">
+      <data key="v_name">theboltreport</data>
+      <data key="v_label">theboltreport</data>
+    </node>
+    <node id="n137">
+      <data key="v_name">TurnbullMalcolm</data>
+      <data key="v_label">TurnbullMalcolm</data>
+    </node>
+    <node id="n138">
+      <data key="v_name">theage</data>
+      <data key="v_label">theage</data>
+    </node>
+    <node id="n139">
+      <data key="v_name">COLRICHARDKEMP</data>
+      <data key="v_label">COLRICHARDKEMP</data>
+    </node>
+    <node id="n140">
+      <data key="v_name">_Makada_</data>
+      <data key="v_label">_Makada_</data>
+    </node>
+    <node id="n141">
+      <data key="v_name">ExSydney</data>
+      <data key="v_label">ExSydney</data>
+    </node>
+    <node id="n142">
+      <data key="v_name">PeterWallaceAU</data>
+      <data key="v_label">PeterWallaceAU</data>
+    </node>
+    <node id="n143">
+      <data key="v_name">53pamela</data>
+      <data key="v_label">53pamela</data>
+    </node>
+    <node id="n144">
+      <data key="v_name">DMRegister</data>
+      <data key="v_label">DMRegister</data>
+    </node>
+    <node id="n145">
+      <data key="v_name">USATODAY</data>
+      <data key="v_label">USATODAY</data>
+    </node>
+    <node id="n146">
+      <data key="v_name">DMPolice</data>
+      <data key="v_label">DMPolice</data>
+    </node>
+    <node id="n147">
+      <data key="v_name">DSMFireDept</data>
+      <data key="v_label">DSMFireDept</data>
+    </node>
+    <node id="n148">
+      <data key="v_name">Daily_Dispatch</data>
+      <data key="v_label">Daily_Dispatch</data>
+    </node>
+    <node id="n149">
+      <data key="v_name">smaccaroo</data>
+      <data key="v_label">smaccaroo</data>
+    </node>
+    <node id="n150">
+      <data key="v_name">Artspeakcentral</data>
+      <data key="v_label">Artspeakcentral</data>
+    </node>
+    <node id="n151">
+      <data key="v_name">The_Nationals</data>
+      <data key="v_label">The_Nationals</data>
+    </node>
+    <node id="n152">
+      <data key="v_name">TonyAbbottMHR</data>
+      <data key="v_label">TonyAbbottMHR</data>
+    </node>
+    <node id="n153">
+      <data key="v_name">PaulineHansonOz</data>
+      <data key="v_label">PaulineHansonOz</data>
+    </node>
+    <node id="n154">
+      <data key="v_name">SBS</data>
+      <data key="v_label">SBS</data>
+    </node>
+    <edge source="n0" target="n70">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:58:42</data>
+      <data key="e_tweet_id">879021044043923456</data>
+    </edge>
+    <edge source="n1" target="n71">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:57:33</data>
+      <data key="e_tweet_id">879020750858063873</data>
+    </edge>
+    <edge source="n2" target="n72">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:57:29</data>
+      <data key="e_tweet_id">879020735393431553</data>
+    </edge>
+    <edge source="n3" target="n73">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:57:16</data>
+      <data key="e_tweet_id">879020680339181568</data>
+    </edge>
+    <edge source="n4" target="n74">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:56:56</data>
+      <data key="e_tweet_id">879020598604709889</data>
+    </edge>
+    <edge source="n5" target="n75">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:55:06</data>
+      <data key="e_tweet_id">879020137252368384</data>
+    </edge>
+    <edge source="n6" target="n76">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:53:38</data>
+      <data key="e_tweet_id">879019768166076416</data>
+    </edge>
+    <edge source="n7" target="n77">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:53:23</data>
+      <data key="e_tweet_id">879019704324673536</data>
+    </edge>
+    <edge source="n6" target="n76">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:53:17</data>
+      <data key="e_tweet_id">879019680777682944</data>
+    </edge>
+    <edge source="n6" target="n76">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:53:08</data>
+      <data key="e_tweet_id">879019640168472576</data>
+    </edge>
+    <edge source="n8" target="n78">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:52:56</data>
+      <data key="e_tweet_id">879019591493709825</data>
+    </edge>
+    <edge source="n6" target="n76">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:52:51</data>
+      <data key="e_tweet_id">879019571545493505</data>
+    </edge>
+    <edge source="n6" target="n76">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:52:46</data>
+      <data key="e_tweet_id">879019548149563392</data>
+    </edge>
+    <edge source="n9" target="n79">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:52:39</data>
+      <data key="e_tweet_id">879019518395338752</data>
+    </edge>
+    <edge source="n10" target="n74">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:45:19</data>
+      <data key="e_tweet_id">879017673358663680</data>
+    </edge>
+    <edge source="n5" target="n80">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:40:07</data>
+      <data key="e_tweet_id">879016366136807424</data>
+    </edge>
+    <edge source="n11" target="n81">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:40:06</data>
+      <data key="e_tweet_id">879016359258181633</data>
+    </edge>
+    <edge source="n12" target="n82">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:36:20</data>
+      <data key="e_tweet_id">879015411508891648</data>
+    </edge>
+    <edge source="n10" target="n83">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:36:02</data>
+      <data key="e_tweet_id">879015335738851328</data>
+    </edge>
+    <edge source="n13" target="n84">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:35:05</data>
+      <data key="e_tweet_id">879015099234516992</data>
+    </edge>
+    <edge source="n14" target="n14">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:34:31</data>
+      <data key="e_tweet_id">879014955688665092</data>
+    </edge>
+    <edge source="n15" target="n58">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:34:24</data>
+      <data key="e_tweet_id">879014924680298496</data>
+    </edge>
+    <edge source="n16" target="n85">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:32:39</data>
+      <data key="e_tweet_id">879014484496470016</data>
+    </edge>
+    <edge source="n17" target="n73">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:32:25</data>
+      <data key="e_tweet_id">879014426107629569</data>
+    </edge>
+    <edge source="n18" target="n73">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:31:54</data>
+      <data key="e_tweet_id">879014298961428480</data>
+    </edge>
+    <edge source="n19" target="n86">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:31:35</data>
+      <data key="e_tweet_id">879014217264877568</data>
+    </edge>
+    <edge source="n6" target="n87">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:30:10</data>
+      <data key="e_tweet_id">879013862380421120</data>
+    </edge>
+    <edge source="n20" target="n43">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:29:51</data>
+      <data key="e_tweet_id">879013782390951937</data>
+    </edge>
+    <edge source="n12" target="n72">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:28:57</data>
+      <data key="e_tweet_id">879013555718115329</data>
+    </edge>
+    <edge source="n21" target="n88">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:27:52</data>
+      <data key="e_tweet_id">879013283193208832</data>
+    </edge>
+    <edge source="n22" target="n86">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:27:04</data>
+      <data key="e_tweet_id">879013080465723392</data>
+    </edge>
+    <edge source="n14" target="n89">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:26:39</data>
+      <data key="e_tweet_id">879012975956197376</data>
+    </edge>
+    <edge source="n23" target="n77">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:23:53</data>
+      <data key="e_tweet_id">879012279685181443</data>
+    </edge>
+    <edge source="n24" target="n73">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:21:42</data>
+      <data key="e_tweet_id">879011731267366912</data>
+    </edge>
+    <edge source="n25" target="n43">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:20:47</data>
+      <data key="e_tweet_id">879011499376865280</data>
+    </edge>
+    <edge source="n26" target="n89">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:18:46</data>
+      <data key="e_tweet_id">879010994575376384</data>
+    </edge>
+    <edge source="n27" target="n87">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:16:58</data>
+      <data key="e_tweet_id">879010537740410881</data>
+    </edge>
+    <edge source="n28" target="n88">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:16:41</data>
+      <data key="e_tweet_id">879010467766616064</data>
+    </edge>
+    <edge source="n10" target="n89">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:16:28</data>
+      <data key="e_tweet_id">879010415295905792</data>
+    </edge>
+    <edge source="n16" target="n88">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:15:23</data>
+      <data key="e_tweet_id">879010142334836736</data>
+    </edge>
+    <edge source="n26" target="n88">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:15:08</data>
+      <data key="e_tweet_id">879010076891127808</data>
+    </edge>
+    <edge source="n29" target="n70">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:12:19</data>
+      <data key="e_tweet_id">879009370733912064</data>
+    </edge>
+    <edge source="n21" target="n76">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:12:05</data>
+      <data key="e_tweet_id">879009312546279425</data>
+    </edge>
+    <edge source="n10" target="n88">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:11:02</data>
+      <data key="e_tweet_id">879009045897633793</data>
+    </edge>
+    <edge source="n30" target="n90">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:10:37</data>
+      <data key="e_tweet_id">879008941031776256</data>
+    </edge>
+    <edge source="n31" target="n73">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:09:03</data>
+      <data key="e_tweet_id">879008545680838660</data>
+    </edge>
+    <edge source="n32" target="n91">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:09:01</data>
+      <data key="e_tweet_id">879008537980018688</data>
+    </edge>
+    <edge source="n10" target="n88">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:08:32</data>
+      <data key="e_tweet_id">879008417800638464</data>
+    </edge>
+    <edge source="n33" target="n73">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:08:09</data>
+      <data key="e_tweet_id">879008322162221056</data>
+    </edge>
+    <edge source="n10" target="n88">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:07:13</data>
+      <data key="e_tweet_id">879008087696326656</data>
+    </edge>
+    <edge source="n34" target="n87">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:07:10</data>
+      <data key="e_tweet_id">879008075310444544</data>
+    </edge>
+    <edge source="n35" target="n92">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:07:04</data>
+      <data key="e_tweet_id">879008049159077890</data>
+    </edge>
+    <edge source="n36" target="n93">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:04:27</data>
+      <data key="e_tweet_id">879007388724015105</data>
+    </edge>
+    <edge source="n28" target="n43">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:03:49</data>
+      <data key="e_tweet_id">879007229004795904</data>
+    </edge>
+    <edge source="n37" target="n70">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:03:45</data>
+      <data key="e_tweet_id">879007212915408896</data>
+    </edge>
+    <edge source="n10" target="n70">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:03:25</data>
+      <data key="e_tweet_id">879007131604615168</data>
+    </edge>
+    <edge source="n38" target="n70">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:01:42</data>
+      <data key="e_tweet_id">879006695912910849</data>
+    </edge>
+    <edge source="n39" target="n76">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 16:00:51</data>
+      <data key="e_tweet_id">879006482687115264</data>
+    </edge>
+    <edge source="n40" target="n70">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:59:56</data>
+      <data key="e_tweet_id">879006254370136064</data>
+    </edge>
+    <edge source="n41" target="n91">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:58:41</data>
+      <data key="e_tweet_id">879005938002182144</data>
+    </edge>
+    <edge source="n42" target="n91">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:58:36</data>
+      <data key="e_tweet_id">879005915764056065</data>
+    </edge>
+    <edge source="n43" target="n94">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:58:22</data>
+      <data key="e_tweet_id">879005856917987329</data>
+    </edge>
+    <edge source="n28" target="n52">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:57:38</data>
+      <data key="e_tweet_id">879005676034433029</data>
+    </edge>
+    <edge source="n44" target="n90">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:56:17</data>
+      <data key="e_tweet_id">879005332927897600</data>
+    </edge>
+    <edge source="n45" target="n95">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:54:42</data>
+      <data key="e_tweet_id">879004936989622272</data>
+    </edge>
+    <edge source="n10" target="n70">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:54:22</data>
+      <data key="e_tweet_id">879004851740450816</data>
+    </edge>
+    <edge source="n37" target="n96">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:50:12</data>
+      <data key="e_tweet_id">879003804779241472</data>
+    </edge>
+    <edge source="n46" target="n73">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:49:52</data>
+      <data key="e_tweet_id">879003719450230784</data>
+    </edge>
+    <edge source="n47" target="n97">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:44:46</data>
+      <data key="e_tweet_id">879002437645770752</data>
+    </edge>
+    <edge source="n26" target="n73">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:44:32</data>
+      <data key="e_tweet_id">879002376413208576</data>
+    </edge>
+    <edge source="n26" target="n70">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:44:22</data>
+      <data key="e_tweet_id">879002334671495168</data>
+    </edge>
+    <edge source="n48" target="n98">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:43:18</data>
+      <data key="e_tweet_id">879002067783696385</data>
+    </edge>
+    <edge source="n47" target="n97">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:42:49</data>
+      <data key="e_tweet_id">879001945943359488</data>
+    </edge>
+    <edge source="n49" target="n99">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:42:48</data>
+      <data key="e_tweet_id">879001941581463553</data>
+    </edge>
+    <edge source="n34" target="n87">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:41:47</data>
+      <data key="e_tweet_id">879001685691060225</data>
+    </edge>
+    <edge source="n47" target="n97">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:41:44</data>
+      <data key="e_tweet_id">879001672898433024</data>
+    </edge>
+    <edge source="n47" target="n97">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:41:12</data>
+      <data key="e_tweet_id">879001538844254209</data>
+    </edge>
+    <edge source="n50" target="n99">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:41:12</data>
+      <data key="e_tweet_id">879001538080849920</data>
+    </edge>
+    <edge source="n51" target="n100">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:41:10</data>
+      <data key="e_tweet_id">879001528408842240</data>
+    </edge>
+    <edge source="n52" target="n52">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:41:07</data>
+      <data key="e_tweet_id">879001517608493056</data>
+    </edge>
+    <edge source="n53" target="n76">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:40:42</data>
+      <data key="e_tweet_id">879001414344646656</data>
+    </edge>
+    <edge source="n54" target="n101">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:40:32</data>
+      <data key="e_tweet_id">879001371877318656</data>
+    </edge>
+    <edge source="n47" target="n97">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:40:03</data>
+      <data key="e_tweet_id">879001247554035713</data>
+    </edge>
+    <edge source="n55" target="n76">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:39:51</data>
+      <data key="e_tweet_id">879001200275750912</data>
+    </edge>
+    <edge source="n56" target="n84">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:39:35</data>
+      <data key="e_tweet_id">879001131485208576</data>
+    </edge>
+    <edge source="n55" target="n76">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:39:05</data>
+      <data key="e_tweet_id">879001005534269441</data>
+    </edge>
+    <edge source="n55" target="n76">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:38:52</data>
+      <data key="e_tweet_id">879000951427743744</data>
+    </edge>
+    <edge source="n55" target="n76">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:38:26</data>
+      <data key="e_tweet_id">879000844066111488</data>
+    </edge>
+    <edge source="n55" target="n76">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:37:48</data>
+      <data key="e_tweet_id">879000683281661952</data>
+    </edge>
+    <edge source="n55" target="n76">
+      <data key="e_edgeType">Retweet</data>
+      <data key="e_timeStamp">2017-06-25 15:37:21</data>
+      <data key="e_tweet_id">879000570324951040</data>
+    </edge>
+    <edge source="n57" target="n102">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 17:00:23</data>
+      <data key="e_tweet_id">879021464745373696</data>
+    </edge>
+    <edge source="n57" target="n103">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 17:00:23</data>
+      <data key="e_tweet_id">879021464745373696</data>
+    </edge>
+    <edge source="n57" target="n104">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 17:00:23</data>
+      <data key="e_tweet_id">879021464745373696</data>
+    </edge>
+    <edge source="n0" target="n70">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:58:42</data>
+      <data key="e_tweet_id">879021044043923456</data>
+    </edge>
+    <edge source="n58" target="n105">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:57:55</data>
+      <data key="e_tweet_id">879020845879803904</data>
+    </edge>
+    <edge source="n1" target="n71">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:57:33</data>
+      <data key="e_tweet_id">879020750858063873</data>
+    </edge>
+    <edge source="n1" target="n106">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:57:33</data>
+      <data key="e_tweet_id">879020750858063873</data>
+    </edge>
+    <edge source="n1" target="n107">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:57:33</data>
+      <data key="e_tweet_id">879020750858063873</data>
+    </edge>
+    <edge source="n1" target="n108">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:57:33</data>
+      <data key="e_tweet_id">879020750858063873</data>
+    </edge>
+    <edge source="n2" target="n72">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:57:29</data>
+      <data key="e_tweet_id">879020735393431553</data>
+    </edge>
+    <edge source="n3" target="n73">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:57:16</data>
+      <data key="e_tweet_id">879020680339181568</data>
+    </edge>
+    <edge source="n4" target="n74">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:56:56</data>
+      <data key="e_tweet_id">879020598604709889</data>
+    </edge>
+    <edge source="n5" target="n75">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:55:06</data>
+      <data key="e_tweet_id">879020137252368384</data>
+    </edge>
+    <edge source="n5" target="n109">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:55:06</data>
+      <data key="e_tweet_id">879020137252368384</data>
+    </edge>
+    <edge source="n6" target="n76">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:53:38</data>
+      <data key="e_tweet_id">879019768166076416</data>
+    </edge>
+    <edge source="n7" target="n77">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:53:23</data>
+      <data key="e_tweet_id">879019704324673536</data>
+    </edge>
+    <edge source="n6" target="n76">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:53:17</data>
+      <data key="e_tweet_id">879019680777682944</data>
+    </edge>
+    <edge source="n6" target="n76">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:53:08</data>
+      <data key="e_tweet_id">879019640168472576</data>
+    </edge>
+    <edge source="n8" target="n78">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:52:56</data>
+      <data key="e_tweet_id">879019591493709825</data>
+    </edge>
+    <edge source="n6" target="n76">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:52:51</data>
+      <data key="e_tweet_id">879019571545493505</data>
+    </edge>
+    <edge source="n6" target="n76">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:52:46</data>
+      <data key="e_tweet_id">879019548149563392</data>
+    </edge>
+    <edge source="n9" target="n79">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:52:39</data>
+      <data key="e_tweet_id">879019518395338752</data>
+    </edge>
+    <edge source="n59" target="n110">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:50:22</data>
+      <data key="e_tweet_id">879018944216137728</data>
+    </edge>
+    <edge source="n10" target="n74">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:45:19</data>
+      <data key="e_tweet_id">879017673358663680</data>
+    </edge>
+    <edge source="n14" target="n111">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:40:31</data>
+      <data key="e_tweet_id">879016467152359425</data>
+    </edge>
+    <edge source="n5" target="n80">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:40:07</data>
+      <data key="e_tweet_id">879016366136807424</data>
+    </edge>
+    <edge source="n5" target="n112">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:40:07</data>
+      <data key="e_tweet_id">879016366136807424</data>
+    </edge>
+    <edge source="n5" target="n113">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:40:07</data>
+      <data key="e_tweet_id">879016366136807424</data>
+    </edge>
+    <edge source="n5" target="n5">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:40:07</data>
+      <data key="e_tweet_id">879016366136807424</data>
+    </edge>
+    <edge source="n5" target="n114">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:40:07</data>
+      <data key="e_tweet_id">879016366136807424</data>
+    </edge>
+    <edge source="n5" target="n115">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:40:07</data>
+      <data key="e_tweet_id">879016366136807424</data>
+    </edge>
+    <edge source="n5" target="n116">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:40:07</data>
+      <data key="e_tweet_id">879016366136807424</data>
+    </edge>
+    <edge source="n11" target="n81">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:40:06</data>
+      <data key="e_tweet_id">879016359258181633</data>
+    </edge>
+    <edge source="n14" target="n111">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:39:53</data>
+      <data key="e_tweet_id">879016308188209153</data>
+    </edge>
+    <edge source="n12" target="n82">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:36:20</data>
+      <data key="e_tweet_id">879015411508891648</data>
+    </edge>
+    <edge source="n10" target="n83">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:36:02</data>
+      <data key="e_tweet_id">879015335738851328</data>
+    </edge>
+    <edge source="n13" target="n84">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:35:05</data>
+      <data key="e_tweet_id">879015099234516992</data>
+    </edge>
+    <edge source="n60" target="n117">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:35:05</data>
+      <data key="e_tweet_id">879015098299240448</data>
+    </edge>
+    <edge source="n60" target="n118">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:35:05</data>
+      <data key="e_tweet_id">879015098299240448</data>
+    </edge>
+    <edge source="n14" target="n14">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:34:31</data>
+      <data key="e_tweet_id">879014955688665092</data>
+    </edge>
+    <edge source="n15" target="n58">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:34:24</data>
+      <data key="e_tweet_id">879014924680298496</data>
+    </edge>
+    <edge source="n16" target="n85">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:32:39</data>
+      <data key="e_tweet_id">879014484496470016</data>
+    </edge>
+    <edge source="n17" target="n73">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:32:25</data>
+      <data key="e_tweet_id">879014426107629569</data>
+    </edge>
+    <edge source="n18" target="n73">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:31:54</data>
+      <data key="e_tweet_id">879014298961428480</data>
+    </edge>
+    <edge source="n19" target="n86">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:31:35</data>
+      <data key="e_tweet_id">879014217264877568</data>
+    </edge>
+    <edge source="n6" target="n87">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:30:10</data>
+      <data key="e_tweet_id">879013862380421120</data>
+    </edge>
+    <edge source="n20" target="n43">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:29:51</data>
+      <data key="e_tweet_id">879013782390951937</data>
+    </edge>
+    <edge source="n61" target="n119">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:29:35</data>
+      <data key="e_tweet_id">879013713621041153</data>
+    </edge>
+    <edge source="n61" target="n120">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:29:35</data>
+      <data key="e_tweet_id">879013713621041153</data>
+    </edge>
+    <edge source="n61" target="n121">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:29:35</data>
+      <data key="e_tweet_id">879013713621041153</data>
+    </edge>
+    <edge source="n61" target="n122">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:29:35</data>
+      <data key="e_tweet_id">879013713621041153</data>
+    </edge>
+    <edge source="n12" target="n72">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:28:57</data>
+      <data key="e_tweet_id">879013555718115329</data>
+    </edge>
+    <edge source="n21" target="n88">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:27:52</data>
+      <data key="e_tweet_id">879013283193208832</data>
+    </edge>
+    <edge source="n22" target="n86">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:27:04</data>
+      <data key="e_tweet_id">879013080465723392</data>
+    </edge>
+    <edge source="n14" target="n89">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:26:39</data>
+      <data key="e_tweet_id">879012975956197376</data>
+    </edge>
+    <edge source="n14" target="n123">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:26:39</data>
+      <data key="e_tweet_id">879012975956197376</data>
+    </edge>
+    <edge source="n14" target="n124">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:26:39</data>
+      <data key="e_tweet_id">879012975956197376</data>
+    </edge>
+    <edge source="n23" target="n77">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:23:53</data>
+      <data key="e_tweet_id">879012279685181443</data>
+    </edge>
+    <edge source="n24" target="n73">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:21:42</data>
+      <data key="e_tweet_id">879011731267366912</data>
+    </edge>
+    <edge source="n25" target="n43">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:20:47</data>
+      <data key="e_tweet_id">879011499376865280</data>
+    </edge>
+    <edge source="n26" target="n89">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:18:46</data>
+      <data key="e_tweet_id">879010994575376384</data>
+    </edge>
+    <edge source="n26" target="n123">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:18:46</data>
+      <data key="e_tweet_id">879010994575376384</data>
+    </edge>
+    <edge source="n26" target="n124">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:18:46</data>
+      <data key="e_tweet_id">879010994575376384</data>
+    </edge>
+    <edge source="n27" target="n87">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:16:58</data>
+      <data key="e_tweet_id">879010537740410881</data>
+    </edge>
+    <edge source="n28" target="n88">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:16:41</data>
+      <data key="e_tweet_id">879010467766616064</data>
+    </edge>
+    <edge source="n10" target="n89">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:16:28</data>
+      <data key="e_tweet_id">879010415295905792</data>
+    </edge>
+    <edge source="n10" target="n123">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:16:28</data>
+      <data key="e_tweet_id">879010415295905792</data>
+    </edge>
+    <edge source="n10" target="n124">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:16:28</data>
+      <data key="e_tweet_id">879010415295905792</data>
+    </edge>
+    <edge source="n62" target="n125">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:15:27</data>
+      <data key="e_tweet_id">879010157820166144</data>
+    </edge>
+    <edge source="n16" target="n88">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:15:23</data>
+      <data key="e_tweet_id">879010142334836736</data>
+    </edge>
+    <edge source="n26" target="n88">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:15:08</data>
+      <data key="e_tweet_id">879010076891127808</data>
+    </edge>
+    <edge source="n29" target="n70">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:12:19</data>
+      <data key="e_tweet_id">879009370733912064</data>
+    </edge>
+    <edge source="n21" target="n76">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:12:05</data>
+      <data key="e_tweet_id">879009312546279425</data>
+    </edge>
+    <edge source="n10" target="n88">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:11:02</data>
+      <data key="e_tweet_id">879009045897633793</data>
+    </edge>
+    <edge source="n30" target="n90">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:10:37</data>
+      <data key="e_tweet_id">879008941031776256</data>
+    </edge>
+    <edge source="n30" target="n126">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:10:37</data>
+      <data key="e_tweet_id">879008941031776256</data>
+    </edge>
+    <edge source="n63" target="n111">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:09:24</data>
+      <data key="e_tweet_id">879008635124187136</data>
+    </edge>
+    <edge source="n31" target="n73">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:09:03</data>
+      <data key="e_tweet_id">879008545680838660</data>
+    </edge>
+    <edge source="n32" target="n91">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:09:01</data>
+      <data key="e_tweet_id">879008537980018688</data>
+    </edge>
+    <edge source="n32" target="n127">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:09:01</data>
+      <data key="e_tweet_id">879008537980018688</data>
+    </edge>
+    <edge source="n10" target="n88">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:08:32</data>
+      <data key="e_tweet_id">879008417800638464</data>
+    </edge>
+    <edge source="n33" target="n73">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:08:09</data>
+      <data key="e_tweet_id">879008322162221056</data>
+    </edge>
+    <edge source="n10" target="n88">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:07:13</data>
+      <data key="e_tweet_id">879008087696326656</data>
+    </edge>
+    <edge source="n34" target="n87">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:07:10</data>
+      <data key="e_tweet_id">879008075310444544</data>
+    </edge>
+    <edge source="n35" target="n92">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:07:04</data>
+      <data key="e_tweet_id">879008049159077890</data>
+    </edge>
+    <edge source="n64" target="n128">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:05:14</data>
+      <data key="e_tweet_id">879007588586733568</data>
+    </edge>
+    <edge source="n64" target="n129">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:05:14</data>
+      <data key="e_tweet_id">879007588586733568</data>
+    </edge>
+    <edge source="n36" target="n93">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:04:27</data>
+      <data key="e_tweet_id">879007388724015105</data>
+    </edge>
+    <edge source="n36" target="n130">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:04:27</data>
+      <data key="e_tweet_id">879007388724015105</data>
+    </edge>
+    <edge source="n36" target="n131">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:04:27</data>
+      <data key="e_tweet_id">879007388724015105</data>
+    </edge>
+    <edge source="n28" target="n43">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:03:49</data>
+      <data key="e_tweet_id">879007229004795904</data>
+    </edge>
+    <edge source="n37" target="n70">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:03:45</data>
+      <data key="e_tweet_id">879007212915408896</data>
+    </edge>
+    <edge source="n10" target="n70">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:03:25</data>
+      <data key="e_tweet_id">879007131604615168</data>
+    </edge>
+    <edge source="n10" target="n111">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:02:29</data>
+      <data key="e_tweet_id">879006894563524608</data>
+    </edge>
+    <edge source="n38" target="n70">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:01:42</data>
+      <data key="e_tweet_id">879006695912910849</data>
+    </edge>
+    <edge source="n39" target="n76">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 16:00:51</data>
+      <data key="e_tweet_id">879006482687115264</data>
+    </edge>
+    <edge source="n40" target="n70">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:59:56</data>
+      <data key="e_tweet_id">879006254370136064</data>
+    </edge>
+    <edge source="n65" target="n132">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:58:44</data>
+      <data key="e_tweet_id">879005952200118275</data>
+    </edge>
+    <edge source="n65" target="n133">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:58:44</data>
+      <data key="e_tweet_id">879005952200118275</data>
+    </edge>
+    <edge source="n65" target="n134">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:58:44</data>
+      <data key="e_tweet_id">879005952200118275</data>
+    </edge>
+    <edge source="n41" target="n91">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:58:41</data>
+      <data key="e_tweet_id">879005938002182144</data>
+    </edge>
+    <edge source="n41" target="n127">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:58:41</data>
+      <data key="e_tweet_id">879005938002182144</data>
+    </edge>
+    <edge source="n42" target="n91">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:58:36</data>
+      <data key="e_tweet_id">879005915764056065</data>
+    </edge>
+    <edge source="n42" target="n127">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:58:36</data>
+      <data key="e_tweet_id">879005915764056065</data>
+    </edge>
+    <edge source="n43" target="n94">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:58:22</data>
+      <data key="e_tweet_id">879005856917987329</data>
+    </edge>
+    <edge source="n64" target="n135">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:58:10</data>
+      <data key="e_tweet_id">879005810025574401</data>
+    </edge>
+    <edge source="n64" target="n129">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:58:10</data>
+      <data key="e_tweet_id">879005810025574401</data>
+    </edge>
+    <edge source="n64" target="n136">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:58:10</data>
+      <data key="e_tweet_id">879005810025574401</data>
+    </edge>
+    <edge source="n28" target="n52">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:57:38</data>
+      <data key="e_tweet_id">879005676034433029</data>
+    </edge>
+    <edge source="n28" target="n137">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:57:38</data>
+      <data key="e_tweet_id">879005676034433029</data>
+    </edge>
+    <edge source="n44" target="n90">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:56:17</data>
+      <data key="e_tweet_id">879005332927897600</data>
+    </edge>
+    <edge source="n44" target="n126">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:56:17</data>
+      <data key="e_tweet_id">879005332927897600</data>
+    </edge>
+    <edge source="n66" target="n138">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:55:54</data>
+      <data key="e_tweet_id">879005238987849729</data>
+    </edge>
+    <edge source="n45" target="n95">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:54:42</data>
+      <data key="e_tweet_id">879004936989622272</data>
+    </edge>
+    <edge source="n10" target="n70">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:54:22</data>
+      <data key="e_tweet_id">879004851740450816</data>
+    </edge>
+    <edge source="n58" target="n139">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:52:08</data>
+      <data key="e_tweet_id">879004289800093696</data>
+    </edge>
+    <edge source="n66" target="n138">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:51:53</data>
+      <data key="e_tweet_id">879004226973712384</data>
+    </edge>
+    <edge source="n37" target="n96">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:50:12</data>
+      <data key="e_tweet_id">879003804779241472</data>
+    </edge>
+    <edge source="n58" target="n140">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:49:54</data>
+      <data key="e_tweet_id">879003727876587520</data>
+    </edge>
+    <edge source="n58" target="n139">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:49:54</data>
+      <data key="e_tweet_id">879003727876587520</data>
+    </edge>
+    <edge source="n46" target="n73">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:49:52</data>
+      <data key="e_tweet_id">879003719450230784</data>
+    </edge>
+    <edge source="n10" target="n111">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:46:42</data>
+      <data key="e_tweet_id">879002921593036800</data>
+    </edge>
+    <edge source="n67" target="n141">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:45:49</data>
+      <data key="e_tweet_id">879002700989571072</data>
+    </edge>
+    <edge source="n67" target="n142">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:45:49</data>
+      <data key="e_tweet_id">879002700989571072</data>
+    </edge>
+    <edge source="n67" target="n143">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:45:49</data>
+      <data key="e_tweet_id">879002700989571072</data>
+    </edge>
+    <edge source="n61" target="n144">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:44:51</data>
+      <data key="e_tweet_id">879002454985064448</data>
+    </edge>
+    <edge source="n61" target="n145">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:44:51</data>
+      <data key="e_tweet_id">879002454985064448</data>
+    </edge>
+    <edge source="n61" target="n146">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:44:51</data>
+      <data key="e_tweet_id">879002454985064448</data>
+    </edge>
+    <edge source="n61" target="n147">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:44:51</data>
+      <data key="e_tweet_id">879002454985064448</data>
+    </edge>
+    <edge source="n47" target="n97">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:44:46</data>
+      <data key="e_tweet_id">879002437645770752</data>
+    </edge>
+    <edge source="n26" target="n73">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:44:32</data>
+      <data key="e_tweet_id">879002376413208576</data>
+    </edge>
+    <edge source="n26" target="n70">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:44:22</data>
+      <data key="e_tweet_id">879002334671495168</data>
+    </edge>
+    <edge source="n48" target="n98">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:43:18</data>
+      <data key="e_tweet_id">879002067783696385</data>
+    </edge>
+    <edge source="n47" target="n97">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:42:49</data>
+      <data key="e_tweet_id">879001945943359488</data>
+    </edge>
+    <edge source="n49" target="n99">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:42:48</data>
+      <data key="e_tweet_id">879001941581463553</data>
+    </edge>
+    <edge source="n68" target="n148">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:41:52</data>
+      <data key="e_tweet_id">879001708055207936</data>
+    </edge>
+    <edge source="n34" target="n87">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:41:47</data>
+      <data key="e_tweet_id">879001685691060225</data>
+    </edge>
+    <edge source="n47" target="n97">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:41:44</data>
+      <data key="e_tweet_id">879001672898433024</data>
+    </edge>
+    <edge source="n69" target="n149">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:41:15</data>
+      <data key="e_tweet_id">879001549275639808</data>
+    </edge>
+    <edge source="n69" target="n150">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:41:15</data>
+      <data key="e_tweet_id">879001549275639808</data>
+    </edge>
+    <edge source="n47" target="n97">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:41:12</data>
+      <data key="e_tweet_id">879001538844254209</data>
+    </edge>
+    <edge source="n47" target="n151">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:41:12</data>
+      <data key="e_tweet_id">879001538844254209</data>
+    </edge>
+    <edge source="n47" target="n135">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:41:12</data>
+      <data key="e_tweet_id">879001538844254209</data>
+    </edge>
+    <edge source="n47" target="n152">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:41:12</data>
+      <data key="e_tweet_id">879001538844254209</data>
+    </edge>
+    <edge source="n50" target="n99">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:41:12</data>
+      <data key="e_tweet_id">879001538080849920</data>
+    </edge>
+    <edge source="n51" target="n100">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:41:10</data>
+      <data key="e_tweet_id">879001528408842240</data>
+    </edge>
+    <edge source="n51" target="n153">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:41:10</data>
+      <data key="e_tweet_id">879001528408842240</data>
+    </edge>
+    <edge source="n52" target="n52">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:41:07</data>
+      <data key="e_tweet_id">879001517608493056</data>
+    </edge>
+    <edge source="n52" target="n137">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:41:07</data>
+      <data key="e_tweet_id">879001517608493056</data>
+    </edge>
+    <edge source="n53" target="n76">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:40:42</data>
+      <data key="e_tweet_id">879001414344646656</data>
+    </edge>
+    <edge source="n54" target="n101">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:40:32</data>
+      <data key="e_tweet_id">879001371877318656</data>
+    </edge>
+    <edge source="n54" target="n154">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:40:32</data>
+      <data key="e_tweet_id">879001371877318656</data>
+    </edge>
+    <edge source="n47" target="n97">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:40:03</data>
+      <data key="e_tweet_id">879001247554035713</data>
+    </edge>
+    <edge source="n47" target="n135">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:40:03</data>
+      <data key="e_tweet_id">879001247554035713</data>
+    </edge>
+    <edge source="n55" target="n76">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:39:51</data>
+      <data key="e_tweet_id">879001200275750912</data>
+    </edge>
+    <edge source="n56" target="n84">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:39:35</data>
+      <data key="e_tweet_id">879001131485208576</data>
+    </edge>
+    <edge source="n55" target="n76">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:39:05</data>
+      <data key="e_tweet_id">879001005534269441</data>
+    </edge>
+    <edge source="n55" target="n76">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:38:52</data>
+      <data key="e_tweet_id">879000951427743744</data>
+    </edge>
+    <edge source="n10" target="n111">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:38:44</data>
+      <data key="e_tweet_id">879000917973934080</data>
+    </edge>
+    <edge source="n55" target="n76">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:38:26</data>
+      <data key="e_tweet_id">879000844066111488</data>
+    </edge>
+    <edge source="n55" target="n76">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:37:48</data>
+      <data key="e_tweet_id">879000683281661952</data>
+    </edge>
+    <edge source="n55" target="n76">
+      <data key="e_edgeType">Mention</data>
+      <data key="e_timeStamp">2017-06-25 15:37:21</data>
+      <data key="e_tweet_id">879000570324951040</data>
+    </edge>
+    <edge source="n58" target="n105">
+      <data key="e_edgeType">Reply</data>
+      <data key="e_timeStamp">2017-06-25 16:57:55</data>
+      <data key="e_tweet_id">879020845879803904</data>
+    </edge>
+    <edge source="n60" target="n117">
+      <data key="e_edgeType">Reply</data>
+      <data key="e_timeStamp">2017-06-25 16:35:05</data>
+      <data key="e_tweet_id">879015098299240448</data>
+    </edge>
+    <edge source="n64" target="n128">
+      <data key="e_edgeType">Reply</data>
+      <data key="e_timeStamp">2017-06-25 16:05:14</data>
+      <data key="e_tweet_id">879007588586733568</data>
+    </edge>
+    <edge source="n58" target="n139">
+      <data key="e_edgeType">Reply</data>
+      <data key="e_timeStamp">2017-06-25 15:52:08</data>
+      <data key="e_tweet_id">879004289800093696</data>
+    </edge>
+    <edge source="n58" target="n140">
+      <data key="e_edgeType">Reply</data>
+      <data key="e_timeStamp">2017-06-25 15:49:54</data>
+      <data key="e_tweet_id">879003727876587520</data>
+    </edge>
+  </graph>
+</graphml>

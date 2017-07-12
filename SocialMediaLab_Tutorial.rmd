@@ -1,0 +1,323 @@
+---
+title: "SocialMediaLab Tutorial - Data Collection"
+author: "Robert Ackland & Timothy Graham"
+date: "23 June 2017"
+output:
+  html_document: default
+  pdf_document: default
+graphics: yes
+urlcolor: blue
+---
+
+## Introduction
+
+This is a tutorial for the *SocialMediaLab* R package. 
+
+SocialMediaLab was created by Tim Graham (who is also the maintainer of the package) and Robert Ackland. A major contribution was also made by Chung-hong Chan.  For more information, see [SocialMediaLab page on the VOSON website](http://vosonlab.net/SocialMediaLab).
+
+*SocialMediaLab* enables users to collect social media data and create different kinds of networks for analysis. It is a 'Swiss army knife' for this kind research, enabling a swift work flow from concept to data to fully-fledged network, ready for SNA and other analysis. It can handle large datasets and create very large networks, upwards of a million or more nodes (depending on your computer's resources!). The following data sources are currently supported:
+
+1. Twitter
+2. Facebook
+3. YouTube
+
+## Installation and setup
+
+First we need ensure that the *SocialMediaLab* package is installed and loaded. 
+
+We also want to install the *magrittr* package, so we can simplify the work flow by using 'verb' functions that pipe together. We will also be using the *igraph* package for network analysis.
+
+The following commands will check if the packages are installed and install them as necessary, then load them.
+
+```{r warning=FALSE, eval=FALSE}
+if (!"SocialMediaLab" %in% installed.packages()) install.packages("SocialMediaLab")
+require(SocialMediaLab)
+
+if (!"magrittr" %in% installed.packages()) install.packages("magrittr")
+require(magrittr)
+
+if (!"igraph" %in% installed.packages()) install.packages("igraph")
+require(igraph)
+```
+
+### 這裡是說，你需要到臉書的開發網站 http://developer.facebook.com 去申請一組 API access key
+You will also need to get API access for each data source (e.g. Facebook). You will **not be able to collect any data until you have acquired API credentials**. Step-by-step instructions for obtaining API access are available from the [SocialMediaLab page on the VOSON website](http://vosonlab.net/SocialMediaLab).
+
+## Data collection
+
+In this section, we will run through the collection of data from the three data sources.
+
+Before starting the data collection, make sure you have R set to the correct working directory (this is where data files and network maps will be saved).  In RStudio you can do this using Session->Set Working Directory->To Source File Location.  The underlying R commands are something like (make sure you use a directory that exists):
+
+```{r eval=FALSE}
+> getwd() # 取得目前的工作目錄
+> setwd("~/SocialMediaLab/tutorial/") # 切換目前的工作目錄
+```
+
+
+### Facebook
+
+### SocialMediaLab 已經把使用者驗證、資料搜集和建立網路的三個步驟都包裝成 Authenticate(), Collect(), Create() 函數，這樣的可以簡化工作流程
+### Magrittr 是一個管線運算程式，它提供了管線運算子 %>%
+### 參考：https://blog.gtwang.org/r/r-pipes-magrittr-package
+In *SocialMediaLab*, the process of authentication, data collection, and creating social networks can be expressed with the 3 verb functions: `Authenticate()`, `Collect()`, and `Create()`. This simplified workflow exploits the pipe interface of the *Magrittr* package, and provides better handling of API authentication between R sessions.
+
+What we are doing is "piping" the data forward using the `%>%` operator, in a kind of functional programming approach. It means we can pipe together all the different elements of the work flow in a quick and easy manner.
+
+This also provides the ability to save and load authentication tokens, so we don't have to keep authenticating with APIs between sessions. Obviously, this opens up possibilities for automation and data mining projects.
+
+Make sure we have our `appID` and `appSecret` values defined:
+
+```{r eval=FALSE}
+appID <- "1897207070535741"
+appSecret <- "d62259df33d4916c2e692376df27391e"
+```
+
+We will collect one month of activity from the [Stop Coal Seam Gas Blue Mountains](https://www.facebook.com/StopCoalSeamGasBlueMountains/) Facebook fan page.
+
+This will collect all the *posts* posted between the `rangeFrom` and `rangeTo` dates, including all *comments* and *likes*, and other associated data including usernames, timestamps for comments, etc. Note: the date format is YYYY-MM-DD.
+
+We will be using this data to create a bimodal network. This graph object is bimodal because edges represent relationships between nodes of two different types. For example, in our bimodal Facebook network, nodes represent Facebook *users* or Facebook *posts*, and edges represent whether a user has commented or 'liked' a post. Edges are directed and weighted (e.g. if user i has commented n times on post j, then the weight of this directed edge equals n). 
+
+### Facebook 的部分只支援建立 bimodal 和 dynamic 網路
+Note: for Facebook, *SocialMediaLab* currently only supports creating *bimodal* and *dynamic* networks. More types of networks will be implemented soon.
+
+```{r eval=FALSE}
+g_bimodal_facebook_csg <- Authenticate("Facebook", 
+  appID = appID, appSecret = appSecret) %>% 
+  SaveCredential("FBCredential.RDS") %>%
+  Collect(pageName="StopCoalSeamGasBlueMountains", rangeFrom="2015-06-23", 
+  rangeTo="2015-07-23", writeToFile=TRUE) %>% 
+  Create("Bimodal")
+```
+
+### 這邊是要你打開下面的 console，你會看到 press any key to continue，接著瀏覽器會打開，顯示通過驗證了，接著會自動進行資料擷取
+Note that you will receive a message "Copy and paste into Site URL on Facebook App Settings: http://localhost:1410 When done, press any key to continue..." -- just press enter and your browser will open up so you can login to Facebook.  Once you've successfully logged into Facebook, you should receive the message (in the browser): "Authentication complete. Please close this page and return to R."
+
+
+The Magrittr pipe approach used in this example means that we only end up with the *final graph object* (in the global environment). To ensure we retain the data that are collected, the argument `writeToFile=TRUE` is used. This writes the data collected using `Collect()` function to a local CSV file before it is piped through to the network generation function `Create()`. We can then read it in as a dataframe (see code snippet below).
+
+Note: an alternative approach (if you just want the data, not the network) is to remove the `Create()` function from the pipeline, meaning that the `Collect()` function is the final value returned (i.e. the data, which can later be piped through to `Network()` if we want to create network objects).
+
+### 下載回來的檔案會是這個名稱，程式會自動載入，沒有載入的話才用這行
+```{r eval=FALSE}
+# make sure you change the filename!:
+myCSG_data <- read.csv("2015-06-23_to_2015-07-23_StopCoalSeamGasBlueMountains_FacebookData.csv")
+View(myCSG_data)
+```
+
+This means we end up with two objects for further analysis, a graph object `g_bimodal_facebook_csg`, and a dataframe object `myCSG_data`.
+
+### 在上方 Authenticate(), Collect(), Create() 的過程中，就已經把網路建構成一個 graph variable 放到 g_bimodal_facebook_csg 中，我們可以檢視一下這個變數的內容
+We can now examine the description of our network:
+
+```{r eval=FALSE}
+g_bimodal_facebook_csg
+```
+
+### 修改一下圖的樣式，讓 node (可能代表著 Post)為紅色，Users 則是預設藍色
+Before plotting the graph, change the node color such that Posts are red, while Users are the default color (blue).
+
+```{r eval=FALSE}
+V(g_bimodal_facebook_csg)$color <- ifelse(V(g_bimodal_facebook_csg)$type == "Post", "red", "blue")
+```
+
+### 畫圖！
+We can see the network with the following:
+
+```{r eval=FALSE}
+plot(g_bimodal_facebook_csg)
+```
+
+### 由於 RStudio 的 plot pane 太小了，所以我們採用另一個(用 X11/XQuartz 改善過後的) 顯示方式
+In RStudio, the plot pane is generally too small and so an improvement is via opening an X11 graphics driver (only on machines with access to an X server):
+
+```{r eval=FALSE}
+x11()
+plot(g_bimodal_facebook_csg)
+```
+
+### 將圖輸出成檔案
+The following set of commands prints the plot (with some plot options to improve the visualisation) to file:
+```{r eval=FALSE}
+png("g_bimodal_facebook_csg.png", width=800, height=700)
+plot(g_bimodal_facebook_csg,vertex.shape="none",edge.width=1.5,edge.curved = .5,edge.arrow.size=0.5,vertex.label.color=V(g_bimodal_facebook_csg)$color,asp=9/16,margin=-0.15)
+dev.off()
+```
+
+### 也可以存成 graphml 格式，可以讓 Gephi 讀取
+We can save the graph object as a graphml file (so can be visualised using software such as Gephi) or for later use in R.
+
+```{r eval=FALSE}
+write.graph(g_bimodal_facebook_csg,
+  "g_bimodal_facebook_csg.graphml",format="graphml")
+```
+
+This can be read back into R as follows (note: to do this, you may have to compile R with XML support):
+```{r eval=FALSE}
+g <- read.graph("g_bimodal_facebook_csg.graphml", format="graphml")
+```
+
+This results in the following (your newtwork will look different to this, since it was collected at a different time):
+\begin{center}
+\includegraphics{figures/g_bimodal_facebook_csg.png}
+\end{center}
+
+
+### Twitter
+
+### Twitter 的部分目前支援三種不同型態的網路：actor(行為者網絡), bimodal, semantic network
+It is currently possible to create 3 different types of networks using Twitter data collected with `SocialMediaLab`. These are (1) *actor* networks; (2) *bimodal* networks; and (3) *semantic* networks.  In this tutorial we will focus just on *actor* networks.
+
+First, define the API credentials. Due to the Twitter API specifications, it is not possible to save authentication token between sessions. The `Authenticate()` function is called only for its side effect, which provides access to the Twitter API for the current session.
+
+```{r eval=FALSE}
+# REPLACE WITH YOUR API KEY
+myapikey <- "xxxx" 
+# REPLACE WITH YOUR API SECRET
+myapisecret <- "xxxx" 
+# REPLACE WITH YOUR ACCESS TOKEN
+myaccesstoken <- "xxxx" 
+# REPLACE WITH YOUR ACCESS TOKEN SECRET
+myaccesstokensecret <- "xxxx"
+```
+
+While it is possible to create a network with one command, here we will `Collect()` the data, but not pipe it directly through to `Network()` straight away. This means we can reuse the data multiple times to create different kinds of networks for analysis.
+
+We will collect 150 recent tweets that have used the #auspol hashtag. This is the dominant hashtag for Australian politics.
+
+```{r eval=FALSE}
+myTwitterData <- Authenticate("twitter", apiKey=myapikey, 
+                          apiSecret=myapisecret,
+                          accessToken=myaccesstoken, 
+                          accessTokenSecret=myaccesstokensecret) %>%
+Collect(searchTerm="#auspol", numTweets=150, 
+        writeToFile=TRUE,verbose=TRUE)
+```
+
+Note: if you are getting the error `Error in check_twitter_oauth( )`, please find a [solution here](https://github.com/geoffjentry/twitteR/issues/90).
+
+We can have a quick look at the data we just collected:
+
+```{r eval=FALSE}
+View(myTwitterData)
+```
+
+### (ORM 化的概念)，使 SocialMediaLab 知道 dataset 是一個 objec of class dataSource，這樣用 Create() 時傳入不同的參數就可以指定要產生的不同網路圖的 (很程式設計的觀念)
+Note the class of the dataframe, which lets `SocialMediaLab` know that this is an object of class `dataSource`, which we can then pass to the `Create()` function to generate different kinds of networks:
+
+```{r eval=FALSE}
+class(myTwitterData)
+```
+
+If you find that you are encountering errors possibly related to the text of the tweets, you can try converting the tweet text to UTF-8 character encoding:
+
+```{r eval=FALSE}
+myTwitterData$text <- iconv(myTwitterData$text, to = 'utf-8')
+```
+
+**Mac users only** may also wish to try the following if they are encountering errors that may be due to character encoding issues:
+
+```{r eval=FALSE}
+#myTwitterData$text <- iconv(myTwitterData$text, to = 'utf-8-mac')
+```
+
+### 呼叫 Create() 建立 actor network
+Now, we will create an *actor* network. In this actor network, edges represent interactions between Twitter users. An interaction is defined as a 'mention' or 'reply' or 'retweet' from user i to user j, given 'tweet' m. In a nutshell, a Twitter actor network shows us who is interacting with who in relation to a particular hashtag or search term.
+
+```{r eval=FALSE}
+g_twitter_actor <- myTwitterData %>% Create("Actor")
+```
+
+We now have an *igraph* graph object, and can analyse it using the same techniques we used in the "Divided They Blog" exercise.
+
+We can now examine the description of our network:
+
+```{r eval=FALSE}
+g_twitter_actor
+```
+
+### 畫圖
+Next, we can visualise the network by plotting it directly in R:
+```{r eval=FALSE}
+png("g_twitter_actor.png", width=800, height=700)
+plot(g_twitter_actor,vertex.shape="none",edge.width=1.5,edge.curved = .5,edge.arrow.size=0.5,asp=9/16,margin=-0.15)
+dev.off()
+```
+
+This results in the following (your newtwork will look different to this, since it was collected at a different time):
+\begin{center}
+\includegraphics{figures/g_twitter_actor.png}
+\end{center}
+
+Finally, save the graph object as a graphml file:
+
+```{r eval=FALSE}
+write.graph(g_twitter_actor,
+  "g_twitter_actor.graphml",format="graphml")
+```
+
+
+### YouTube
+
+As with the other data sources, the first thing we do is set up the API credentials:
+
+```{r eval=FALSE}
+apiKey <- "xxxx"
+```
+
+Next, we specify which videos we want to collect data from, using a character vector specifying one or more YouTube video IDs. For example, if the video URL is 'https://www.youtube.com/watch?v=Xfo0hpVrtrs', then use `videoIDs="Xfo0hpVrtrs"`.
+
+For this example, we will collect data from an Australian anti-fracking video featuring 70s pop star Leo Sayer (!):
+
+```{r eval=FALSE}
+videoIDs <- c("Xfo0hpVrtrs")
+```
+
+The workflow is fairly straightforward - we just pipe together the 'verb' functions. A couple of comments.
+
+1. By default, all the available comments are collected. If desired, the `maxComments' argument can be used to limit the number of comments (but as noted in the documentation, this is not always perfect, due to the YouTube API specifications).
+
+2. Often, we will wish to retain the comment text for further analysis. There are two approaches (as discussed previously). First option is to leave out `Create()` function from the pipeline, so we are just creating a dataframe object with our data (which we can later pipe through to `Create()` an actor network). The second option, which we use in this example, is to specify `writeToFile=TRUE`, so we write the data to disk before piping it through `Create()` the network.
+
+```{r eval=FALSE}
+g_youtube_actor <- Authenticate("youtube", apiKey= apiKey) %>%
+  Collect(videoIDs = videoIDs, writeToFile=TRUE) %>%
+  Create("Actor")
+```
+
+A description of the network:
+
+```{r eval=FALSE}
+g_youtube_actor
+```
+
+A plot of the network:
+
+```{r eval=FALSE}
+png("youtube_fracking.png", width=800, height=700)
+plot(g_youtube_actor,edge.width=1.5,edge.curved=.5,edge.arrow.size=0.5)
+dev.off()
+```
+
+This results in the following:
+\begin{center}
+\includegraphics{figures/youtube_fracking.png}
+\end{center}
+
+Save the graph object as a graphml file:
+
+```{r eval=FALSE}
+write.graph(g_youtube_actor,
+  "g_youtube_actor.graphml",format="graphml")
+```
+
+Read in the YouTube data that we saved to disk, for example:
+
+```{r eval=FALSE}
+# make sure you change the filename:
+myYouTubeData <- read.csv("Jun_26_03_12_16_2017_AEST_YoutubeData.csv")
+View(myYouTubeData)
+```
+
+

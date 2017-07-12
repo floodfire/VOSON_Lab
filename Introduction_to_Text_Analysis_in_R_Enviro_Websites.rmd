@@ -1,0 +1,482 @@
+---
+title: "Introduction to Text Analysis in R - Environmental Activist Websites"
+author: "Robert Ackland & Timothy Graham"
+date: "23 June 2017"
+output:
+  html_document: default
+  pdf_document: default
+graphics: yes
+urlcolor: blue
+---
+
+First, we need to install some additional packages.
+
+```{r warning=FALSE, eval=FALSE}
+if (!"NLP" %in% installed.packages()) install.packages("NLP")
+if (!"RColorBrewer" %in% installed.packages()) install.packages("RColorBrewer")
+
+if (!"SnowballC" %in% installed.packages()) install.packages("SnowballC")
+
+if (!"tm" %in% installed.packages()) install.packages("tm")
+library(tm)        #this will also load SnowballC
+
+if (!"lattice" %in% installed.packages()) install.packages("lattice")
+library(lattice)
+
+if (!"wordcloud" %in% installed.packages()) install.packages("wordcloud")
+library(wordcloud)
+```
+
+This exercise uses a dataset from [Ackland, R. and M. O'Neil (2011), "Online collective identity: The case of the environmental movement," Social Networks, 33, 177-190].  The file "nano2seeds_v2.csv" contains website meta keywords for 161 environmental social movement organisations, collected in 2006. Note: not all the websites have meta keywords.  The websites are also coded according to SMO 'type': Globals (issues of concern include climate change, forest and wildlife preservation, nuclear weapons, and sustainable trade), Toxics (issues include pollutants and environmental justice) and Bios (issues include genetic engineering, organic farming and patenting). 
+
+```{r eval=FALSE}
+df <- read.csv("http://vosonlab.net/papers/Taiwan_2017/nano2seeds_v2.csv",stringsAsFactors=FALSE)
+#df <- read.csv("nano2seeds_v2.csv",stringsAsFactors=FALSE)
+```
+
+#Part 1
+### 點開我們下載回來的資料集後，會發現有不少列的 meta.keywords(說明欄) 這一欄是空的，因此先清除這些列
+Remove rows (websites) that do not have meta keywords.]
+```{r eval=FALSE}
+toRemove <- which(df$Meta.keywords=="")
+
+if (isTRUE(length(toRemove)!=0)) {
+    df <- df[-toRemove,]
+}
+
+nrow(df)                #81 websites have meta keywords
+```
+
+### 取出 dataset 的 meta.keywords 那一欄並指定為 keywords (character vector)
+We will work with the character vector of meta keywords.
+
+```{r eval=FALSE}
+keywords <- df$Meta.keywords               #just for convenience
+```
+
+We convert the character encoding to UTF-8. This avoids errors relating to 'odd' characters in the text. This is usually a good idea, but there may be situations when it is not useful, or even detrimental. Note: Mac users may encounter errors/bugs relating to character encoding, and a workaround is to convert to 'utf-8-mac':
+
+```{r eval=FALSE}
+keywords <- iconv(keywords, to = 'utf-8')
+# **MAC USERS ONLY** should use this instead:
+keywords <- iconv(keywords,to="utf-8-mac")
+```
+
+Now we use the 'tm' package to convert the character vector to a Vcorpus object (volatile corpus, 揮發性主體，應該就是暫時性的物件的意思, tmp, toXXX, fromXXX 這種東西).
+
+```{r eval=FALSE}
+myCorpus <- VCorpus(VectorSource(keywords))  # myCorpus is a list of lists (JSON-like)
+```
+
+Meta keyword text for individual websites can be accessed via the double brackets notation or the 'dollar sign' notation for accessing list elements. Let's have a look at the meta keywords for a particular website.
+
+```{r eval=FALSE}
+df$Vertex[3]                   #http://www.gmwatch.org/ - "GMWatch provides the public with the latest news and comment on genetically modified (GMO) foods and cropsInstitute of Science in Society""
+myCorpus[[3]][[1]]
+# another way to access it
+myCorpus[[3]]$content
+```
+
+### 文字處理
+We can perform a number of highly useful transformations of text using tm_map function (i.e. 'mapping to the corpus'). Not all of these transformations are useful in every scenario! They should be used only when it makes sense, or as required, etc.
+
+Note that the text in the provided dataset has already been processed/transformed and so most of the following transfomations do not have an affect, but they are useful to know for use with other datasets.
+
+透過 tm_map 可以一次對所有指定的資料作轉換操作
+
+Converting all the text to lowercase:
+
+```{r eval=FALSE}
+myCorpus <- tm_map(myCorpus, content_transformer(tolower))
+```
+
+Remove numbers from the text:
+
+```{r eval=FALSE}
+myCorpus <- tm_map(myCorpus, removeNumbers)
+```
+
+Remove punctuation from the text:
+
+```{r eval=FALSE}
+myCorpus <- tm_map(myCorpus, removePunctuation)
+```
+
+### Stemming
+Word stemming is the process of reducing words to their root or base form (see, for example, https://en.wikipedia.org/wiki/Stemming).  From the wikpedia page:
+
+```
+A stemming algorithm reduces the words "fishing", "fished", and "fisher" to the root word,
+"fish". On the other hand, "argue", "argued", "argues", "arguing", and "argus" reduce to
+the stem "argu" (illustrating the case where the stem is not itself a word or root) but
+"argument" and "arguments" reduce to the stem "argument"."
+```
+
+Note that word stemming can be highly useful, but also highly detrimental!  For this exercise we in fact will not use it, and so will comment out the relevant syntax.
+
+```{r eval=FALSE}
+#myCorpus <- tm_map(myCorpus, stemDocument,lazy=TRUE) # use lazy=TRUE argument to avoid warning on some machines with multiple CPU cores
+```
+
+### Stop word removal
+We can also remove English 'stop words' from the text. These are common words (e.g. 'the', 'and', 'or') that we may want to exclude from our analysis. Once again, this is highly useful but also needs to be carefully applied.
+
+```{r eval=FALSE}
+myCorpus <- tm_map(myCorpus, removeWords, stopwords("english"),lazy=TRUE) # use lazy=TRUE argument to avoid warning on some machines with multiple CPU cores
+```
+
+### White Space removal
+**移除多餘的空白，例如字詞間只需要一個空白，多打的就不要了**
+Eliminate unnecessary 'white space' from the text. For example, "hello    everyone my name   is    fred" becomes "hello everyone my name is fred":
+
+```{r eval=FALSE}
+myCorpus <- tm_map(myCorpus, stripWhitespace, lazy=TRUE)
+```
+
+We can observe the difference now by examining website #3 again:
+
+```{r eval=FALSE}
+myCorpus[[3]]$content
+```
+
+## defined own stop words
+We could also define our own stop words and transform the text using these.  For example, we might think that it is not interesting that an environmental social movement organisation has the word "environment" in its meta keywords.
+
+```{r eval=FALSE}
+myStopwords <- c("environment")
+myCorpus <- tm_map(myCorpus, removeWords, myStopwords)
+```
+
+### Create Document-Term Matrix (with a function!)
+Next we create a document-term matrix (DTM) from the fbCorpus object. DTMs are a very important concept for text analysis and are highly useful. DTMs can be thought about as a table (i.e. matrix) where the rows are 'documents' (i.e. website meta keyword fields in our dataset), and the columns are 'terms' (i.e. each unique word found across all the documents in the dataset). **The 'cells' (i.e. elements) of the matrix indicate how many times term n occurred in document m**.
+
+### DocumentTermMatrix(corpus) 會針對所有傳入的 doc 裡面每一個 terms 建立一個表，並且對應出不同文件中出現該 term 的次數，例如 doc1 中有一個 term 是 fox，則結果的表格中會有一個 fox 對應所有 docs 個字出現的次數
+
+To better understand the concept of a DTM, let's take quick digression and look at a simpler corpus than our environmental social movement dataset.
+**這裡只是展示用，跟原例子無關**
+```{r eval=FALSE}
+#some test documents
+myText <- c("the quick brown furry fox jumped over a second furry brown fox",
+              "the sparse brown furry matrix",
+              "the quick matrix")
+#create the corpus
+myVCorpus <- VCorpus(VectorSource(myText))
+#create the DTM
+myTdm <- DocumentTermMatrix(myVCorpus)
+#display the DTM
+as.matrix(myTdm)
+#produces:
+#    Terms
+#Docs brown fox furry jumped matrix over quick second sparse the
+#   1     2   2     2      1      0    1     1      1      0   1
+#   2     1   0     1      0      1    0     0      0      1   1
+#   3     0   0     0      0      1    0     1      0      0   1
+```
+
+**This is our sample**
+Getting back to the environmental SMO dataset, note: we use the `control` argument to specify that we only want to **retain words that are minimum character length of 3, up to a maximum of 20 characters**.
+
+```{r eval=FALSE}
+dtm <- DocumentTermMatrix(myCorpus,control = list(wordLengths=c(3, 20)))
+dtm
+inspect(dtm[1:5, 20:30])  # inspect(dtm) 會印出部分表格或列表內容，直接呼叫 dtm 只有顯示 metadata
+```
+
+### 稀疏矩陣
+With most real world text datasets we will have a "sparse matrix", i.e. most of the elements of the matrix are 0, i.e. in our dataset most meta keyword fields contain only a small percentage of 'vocabulary' of terms observed across the meta keywords collected from all the websites. **What we want to do is remove terms that occur very infrequently, which will leave us with the most 'important' terms**. We remove sparse terms using the `removeSparseTerms` function, which removes terms that occur equal to or less than a percentage threshold. 
+
+**從上面的結果可以發現，會有很多的 0，這種矩陣稱為稀疏矩陣，在 Document Term Matrix 中這個意義是『sparse terms』，我們會希望找到在所有文件中出現比例較高的 term，它所代表的意義可能是這些文章討論的核心議題或主題，可以簡單呼叫 `removeSparseTerms` 來移除『出現在所有docs的比例』低於或等於我們設定的篩選門檻者**
+
+To better understand the process of removing sparse terms, let's look at the test dtm again.
+**這裡只是展示用，跟原例子無關**
+```{r eval=FALSE}
+#the second argument to the removeSparseTerms() function is the threshold for which terms are to be retained
+#in the following, only terms that appear in 99% or more documents are retained
+as.matrix(removeSparseTerms(myTdm, .01))
+#in the following, only terms that appear in 50% or more documents are retained 
+as.matrix(removeSparseTerms(myTdm, .5))
+```
+
+**This is our sample (別急著問怎麼抓 0.95，下面作者說要 trial-and-error，而且最後會抓 0.98)**
+There are 850 terms in our dtm.  The following indicates that if we set the threshold for removing sparse terms to 0.95 (so a term has to appear in over 5% of documents), then we'd be left with a dtm containing 52 terms.
+
+```{r eval=FALSE}
+removeSparseTerms(dtm, 0.95)
+```
+(I have no idea why sparsity is 90% instead of 95%.)
+
+# before remove sparse terms
+```
+> inspect(dtm)
+<<DocumentTermMatrix (documents: 81, terms: 947)>>
+Non-/sparse entries: 1517/75190
+Sparsity           : 98%
+Maximal term length: 20
+Weighting          : term frequency (tf)
+Sample             :
+    Terms
+Docs agriculture conservation earth environmental food genetic genetically green modified pollution
+  28           0            2     1             0    0       0           0     0        0         0
+  44           0            0     0             0    0       0           0     0        0         0
+  5            1            0     1             1    5       0           0     0        0         0
+  52           0            0     0             1    0       0           0     0        0         0
+  53           0            0     0             0    0       0           0     0        0         0
+  57           0            1     1             0    0       0           0     0        0         0
+  60           0            0     0             0    0       0           0     0        0         0
+  65           0            0     0             0    0       0           0     0        0         0
+  76           0            0     0             0    0       0           0     0        0         0
+  9            0            0     0             0    6       0           1     0        1         0
+```
+# after remove sparse terms
+```
+> inspect(removeSparseTerms(dtm, 0.95))
+<<DocumentTermMatrix (documents: 81, terms: 51)>>
+Non-/sparse entries: 405/3726
+Sparsity           : 90%
+Maximal term length: 14
+Weighting          : term frequency (tf)
+Sample             :
+    Terms
+Docs agriculture conservation earth environmental food genetic genetically green modified pollution
+  1            2            0     0             0    1       2           0     0        0         0
+  13           0            0     0             0    1       3           0     0        0         2
+  19           0            0     0             0    1       2           3     0        3         0
+  26           0            0     0             3    0       0           0     0        0         0
+  32           0            0     1             2    0       0           0     2        0         1
+  34           0            0     0             1    2       0           1     0        1         1
+  41           0            0     0             2    0       0           0     1        0         1
+  5            1            0     1             1    5       0           0     0        0         0
+  52           0            0     0             1    0       0           0     0        0         0
+  6            0            0     0             0    1       0           5     0        2         0
+```
+
+
+**You should use trial and error to establish how many terms to drop from the dtm** (note: you may decide to not drop any terms).  For our exercise we will set a threshold of 0.98. (at least 2% of docs)
+
+```{r eval=FALSE}
+dtmSparseRemoved <- removeSparseTerms(dtm, 0.98)
+```
+**result**
+```
+<<DocumentTermMatrix (documents: 81, terms: 208)>>
+Non-/sparse entries: 778/16070
+Sparsity           : 95%
+Maximal term length: 16
+Weighting          : term frequency (tf)
+Sample             :
+    Terms
+Docs agriculture conservation earth environmental food genetic genetically green modified pollution
+  20           0            0     0             0    5       2           1     0        1         0
+  26           0            0     0             3    0       0           0     0        0         0
+  28           0            2     1             0    0       0           0     0        0         0
+  30           0            2     0             0    0       0           0     0        0         0
+  31           0            1     1             1    2       0           0     1        0         0
+  32           0            0     1             2    0       0           0     2        0         1
+  34           0            0     0             1    2       0           1     0        1         1
+  41           0            0     0             2    0       0           0     1        0         1
+  5            1            0     1             1    5       0           0     0        0         0
+  6            0            0     0             0    1       0           5     0        2         0
+```
+(I have no idea why sparsity is 95% instead of 98%.)
+
+**過濾後各 terms 出現的文件總數**
+We can examine term frequencies in our data. We create a character vector of the sums of columns of our document-term matrix (implicitly coercing it to a `matrix` object), meaning that have a named character vector where the names are the unique terms in our document-term matrix, and the values of the elements are the number of times that particular word occurs across all of our corpus.
+**select terms, SUM(columns) group by columns**
+```{r eval=FALSE}
+freqTerms <- colSums(as.matrix(dtmSparseRemoved))
+freqTerms
+```
+
+**找出出現文件數最多的前五與最少的前五個 terms**
+We order the term frequencies and look at the 5 *most* frequent terms and then 5 *least* frequent terms:
+
+```{r eval=FALSE}
+orderTerms <- order(freqTerms,decreasing=TRUE)
+freqTerms[head(orderTerms)]
+freqTerms[tail(orderTerms)]
+```
+
+**找出至少出現20次的詞(不是出現在至少 20 篇文件)**
+Which terms occurred at least 20 times?
+
+```{r eval=FALSE}
+findFreqTerms(dtmSparseRemoved, 20)
+```
+
+### 利用 findAssocs() 找兩個詞之間的關聯性，並篩選出關聯度至少 50%
+We can do a basic correlation analysis by looking at the correlations between terms with the `findAssocs` function. **If two words always appear together in the same document then corr = 1**. If two terms never appear together then corr = 0. Let's look at which terms co-occur with the term "good", with a lower correlation limit of 0.5.
+
+```{r eval=FALSE}
+findAssocs(dtmSparseRemoved, "genetic", corlimit=0.5)
+```
+
+### 畫圖 (列出前 20 多的 terms)
+Next, we can do some text visualisation. First, we can plot our descriptive statistics in various ways. For example, using a barchart to visualise the 20 most frequent terms (we will use the `lattice` package for a nice bar chart:
+
+```{r eval=FALSE}
+png("barchart_frequent_terms.png", width=800, height=700)
+barchart(freqTerms[orderTerms[1:20]])
+dev.off()
+```
+This results in the following chart:
+\begin{center}
+\includegraphics{figures/barchart_frequent_terms.png}
+\end{center}
+
+#Part 2 文字雲
+Now we will be creating *word clouds*, which are a graphical display of relative frequencies of words/terms within a corpus.  There has been a lot of criticism of the use of word clouds - some people argue that bar charts like the one we constructed in Part 1 are a more accurate way of visually displaying text frequency data.  However my opinion is that as long one knows how to interpet a word cloud and they are used in context of descriptive analysis (i.e. not formal testing of hypotheses) then they can be a useful way of quickly understanding topics/issues that are being discussed or engaged with by online actors (and communicating these findings to an audience).
+
+Here are some blog pages discussing the merits of word clouds: **探討文字雲的網站**
+
+* https://onlinejournalismblog.com/2012/01/27/word-cloud-or-bar-chart/
+
+* http://www.niemanlab.org/2011/10/word-clouds-considered-harmful/
+
+* http://dataskeptic.com/epnotes/kill-the-word-cloud.php
+
+* http://www.thrumpledumthrum.com/?p=154
+
+* https://www.r-bloggers.com/building-a-better-word-cloud/
+
+##Word Cloud
+A *word cloud* is another way of visually representing frequencies of words in a corpus.  In the example below, we will first construct a word cloud for all of the websites in the dataset.  Then we will construct a word cloud for only the "bio" websites.  
+
+###For all websites
+First, create character vectors of the meta keywords of each of the different types of websites (Global/Toxic/Bio), by taking subset of elements from the relevant column of the dataframe.  We are also excluding those websites that had no meta keywords.
+
+**因為還會分成三種不同類別個字做分析，因此先把原本的 df 依照 Types 分三類 (以 Part1 的方法就是做成 character vectors)**
+```{r eval=FALSE}
+globalMeta <- df$Meta.keywords[which(df$Type=="Globals"&df$Meta.keywords!="")]
+globalMeta <- paste(globalMeta, collapse = " ")
+
+bioMeta <- df$Meta.keywords[which(df$Type=="Bios"&df$Meta.keywords!="")]
+bioMeta <- paste(bioMeta, collapse = " ")
+
+toxicMeta <- df$Meta.keywords[which(df$Type=="Toxics"&df$Meta.keywords!="")]
+toxicMeta <- paste(toxicMeta, collapse = " ")
+```
+
+**至少會做一個不分類的文字雲，所以先集中成一個資料集**
+Now, combine them together into a new dataframe:
+```{r eval=FALSE}
+df_ALL <- data.frame(group=c("Global","Bio","Toxic"),words=c(globalMeta,bioMeta,toxicMeta))
+View(df_ALL)
+```
+
+Now, create a text corpus using similar approach to Part 1.
+
+```{r eval=FALSE}
+# we create a character vector from the "words" column of df_ALL
+words <- df_ALL$words
+
+# we will convert the character encoding to UTF-8
+# just to be sure there are no odd characters that
+# may cause problems later on
+words <- iconv(words, to = 'UTF-8')
+# ** MAC USERS ONLY **:
+#words <- iconv(words, to = 'UTF-8-mac')
+
+# using 'tm' package we convert character vector to a Vcorpus object (volatile corpus)
+corp <- VCorpus(VectorSource(words))
+
+## now we do transformations of text using tm_map ('mapping to the corpus')
+
+# eliminate extra whitespace
+corp <- tm_map(corp, stripWhitespace)
+
+# convert to all lowercase
+corp <- tm_map(corp, content_transformer(tolower))
+
+# perform stemming (not always useful!)
+#corp <- tm_map(corp, stemDocument)
+
+# remove numbers (not always useful!)
+corp <- tm_map(corp, removeNumbers)
+
+# remove punctuation (not always useful! e.g. text emoticons)
+corp <- tm_map(corp, removePunctuation)
+
+# remove stop words (not always useful!)
+corp <- tm_map(corp, removeWords, stopwords("english"))
+```
+
+### 畫圖 (呼叫 wordcloud() 即可！)
+Now we can create the word cloud.
+
+```{r eval=FALSE}
+#note: if changing res of png, can't have dimensions in pixels (led to wordclouds with very few words...)
+png("word_cloud_enviro_all.png", width=12, height=8, units="in", res=300)
+wordcloud(corp,max.words=200,random.order=FALSE)
+dev.off()
+```
+
+This results in the following:
+\begin{center}
+\includegraphics[trim=5cm 0cm 0cm 1cm,width=21cm]{figures/word_cloud_enviro_all.png}
+\end{center}
+
+
+###For "bio" websites
+Constructing a word cloud just for "bio" websites involves very similar process to as above, but we start with a character vector of just the meta keywords used by the bio sites.
+
+```{r eval=FALSE}
+bioMeta <- iconv(bioMeta, to = 'UTF-8')
+# ** MAC USERS ONLY **:
+#bioMeta <- iconv(bioMeta, to = 'UTF-8-mac')
+
+bioCorp <- VCorpus(VectorSource(bioMeta))
+
+bioCorp <- tm_map(bioCorp, stripWhitespace)
+
+bioCorp <- tm_map(bioCorp, content_transformer(tolower))
+
+#bioCorp <- tm_map(bioCorp, stemDocument)
+
+bioCorp <- tm_map(bioCorp, removeNumbers)
+
+bioCorp <- tm_map(bioCorp, removePunctuation)
+
+bioCorp <- tm_map(bioCorp, removeWords, stopwords("english"))
+```
+
+We are now ready to create the word cloud.
+
+```{r eval=FALSE}
+#let's use differnt colour for text
+colorsx=c("red")
+
+png("word_cloud_enviro_bio.png", width=12, height=8, units="in", res=300)
+wordcloud(bioCorp,max.words=200,random.order=FALSE,colors=colorsx)
+dev.off()
+```
+This results in the following:
+\begin{center}
+\includegraphics[trim=5cm 5cm 0cm 0cm,width=23cm]{figures/word_cloud_enviro_bio.png}
+\end{center}
+
+So what if you wanted to create a separate word cloud for each of the groups: bios, globals and toxics?  This is where it would make sense to create a function.
+
+##Comparison Cloud (把三種類型的文字雲組合在一朵雲的方法)
+A *comparison cloud* is used to show the words that are being used by particular types of actors.
+
+In Part 1, we created a document-term matrix (DTM) but here we will create the inverse of this matrix, the term-document matrix (TDM).
+
+```{r eval=FALSE}
+tdm <- TermDocumentMatrix(corp)
+tdm
+inspect(tdm[1:10,])
+
+tdm2 <- as.matrix(tdm)            #convert to matrix
+
+colnames(tdm2) <- c("Global","Bio","Toxic")
+colorsx=c("blue","red","green")
+
+png("comparison_cloud_enviro.png", width=12, height=8, units="in", res=300)
+comparison.cloud(tdm2,max.words=200,random.order=FALSE,colors=colorsx)
+#commonality.cloud(tdm2,random.order=FALSE)
+dev.off()
+```
+This results in the following:
+\begin{center}
+\includegraphics[trim=5cm 0cm 0cm 0cm,width=21cm]{figures/comparison_cloud_enviro.png}
+\end{center}

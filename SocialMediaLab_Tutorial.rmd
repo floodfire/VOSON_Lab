@@ -69,8 +69,8 @@ This also provides the ability to save and load authentication tokens, so we don
 Make sure we have our `appID` and `appSecret` values defined:
 
 ```{r eval=FALSE}
-appID <- "1897207070535741"
-appSecret <- "d62259df33d4916c2e692376df27391e"
+appID <- "XXX"
+appSecret <- "XXX"
 ```
 
 We will collect one month of activity from the [Stop Coal Seam Gas Blue Mountains](https://www.facebook.com/StopCoalSeamGasBlueMountains/) Facebook fan page.

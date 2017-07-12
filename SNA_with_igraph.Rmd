@@ -68,10 +68,12 @@ list.edge.attributes(g)      #list of the edge attributes
 ##Network maps
 
 ```{r warning=FALSE}
-#png("csg_plot1.png", width=800, height=700)
+png("csg_plot1.png", width=800, height=700)
 plot(g, vertex.shape="none",edge.width=1.5, edge.curved = .5, edge.arrow.size=0.5, asp=9/16,margin=-0.15)
 #dev.off()
 ```
+
+![](csg_plot1.png)
 
 我們可以發現圖中有 loop (Graph Theory 中，loop 是單點自己連到自己，cycle 是多點形成一個循環)， 這是因為你有可能回應自己的 post 所導致，所以我們要把這種狀況拿掉
 
